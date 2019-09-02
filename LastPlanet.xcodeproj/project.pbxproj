@@ -22,6 +22,7 @@
 		6042E5D8231D571C002A0E1F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042E5B1231D571B002A0E1F /* GameScene.swift */; };
 		6042E5D9231D571C002A0E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5B2231D571C002A0E1F /* Assets.xcassets */; };
 		6042E5DA231D571C002A0E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5B2231D571C002A0E1F /* Assets.xcassets */; };
+		6042E5E5231D5853002A0E1F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5E4231D5853002A0E1F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		6042E5CD231D571C002A0E1F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6042E5D0231D571C002A0E1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6042E5D2231D571C002A0E1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6042E5E4231D5853002A0E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		6042E5A9231D571B002A0E1F = {
 			isa = PBXGroup;
 			children = (
+				6042E5E4231D5853002A0E1F /* README.md */,
 				6042E5AE231D571B002A0E1F /* LastPlanet Shared */,
 				6042E5B9231D571C002A0E1F /* LastPlanet iOS */,
 				6042E5CA231D571C002A0E1F /* LastPlanet macOS */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6042E5E5231D5853002A0E1F /* README.md in Resources */,
 				6042E5D5231D571C002A0E1F /* GameScene.sks in Resources */,
 				6042E5C0231D571C002A0E1F /* Main.storyboard in Resources */,
 				6042E5D3231D571C002A0E1F /* Actions.sks in Resources */,
