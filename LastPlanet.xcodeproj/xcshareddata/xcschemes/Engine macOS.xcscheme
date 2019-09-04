@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "60183591231EB65600A34C27"
-               BuildableName = "Engine_macOS.framework"
+               BuildableName = "Engine.framework"
                BlueprintName = "Engine macOS"
                ReferencedContainer = "container:LastPlanet.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60183591231EB65600A34C27"
-            BuildableName = "Engine_macOS.framework"
+            BuildableName = "Engine.framework"
             BlueprintName = "Engine macOS"
             ReferencedContainer = "container:LastPlanet.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "60183591231EB65600A34C27"
-            BuildableName = "Engine_macOS.framework"
+            BuildableName = "Engine.framework"
             BlueprintName = "Engine macOS"
             ReferencedContainer = "container:LastPlanet.xcodeproj">
          </BuildableReference>

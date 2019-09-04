@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6018357F231EB61000A34C27"
-               BuildableName = "Engine_iOS.framework"
+               BuildableName = "Engine.framework"
                BlueprintName = "Engine iOS"
                ReferencedContainer = "container:LastPlanet.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6018357F231EB61000A34C27"
-            BuildableName = "Engine_iOS.framework"
+            BuildableName = "Engine.framework"
             BlueprintName = "Engine iOS"
             ReferencedContainer = "container:LastPlanet.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6018357F231EB61000A34C27"
-            BuildableName = "Engine_iOS.framework"
+            BuildableName = "Engine.framework"
             BlueprintName = "Engine iOS"
             ReferencedContainer = "container:LastPlanet.xcodeproj">
          </BuildableReference>
