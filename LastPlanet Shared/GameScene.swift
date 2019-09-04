@@ -9,12 +9,15 @@
 import SpriteKit
 import Engine
 
-class GameScene: SKScene {
-	
+class GameScene: SKScene, SKSceneDelegate {
 	
 	fileprivate var label : SKLabelNode?
 	fileprivate var spinnyNode : SKShapeNode?
 	
+	
+	var player: GameObject?
+	var previousUpdateTime: TimeInterval?
+
 	
 	class func newGameScene() -> GameScene {
 		// Load 'GameScene.sks' as an SKScene.
@@ -30,6 +33,11 @@ class GameScene: SKScene {
 	}
 	
 	func setUpScene() {
+		// Setup player entity with display and control components.
+		player = GameObject()
+		player?.addComponent(Transform())
+		
+		
 		// Get label node from scene and store it for use later
 		self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
 		if let label = self.label {
@@ -83,6 +91,13 @@ class GameScene: SKScene {
 	override func update(_ currentTime: TimeInterval) {
 		// Called before each frame is rendered
 		Foo.bar()
+		
+		// Track delta time since the last update
+		var deltaTime: TimeInterval = 0
+		if let lastTime = previousUpdateTime { deltaTime = currentTime - lastTime }
+		previousUpdateTime = currentTime
+		
+		ComponentSystem.update(deltaTime: deltaTime)
 	}
 }
 

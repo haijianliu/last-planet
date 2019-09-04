@@ -29,6 +29,18 @@
 		6042E5D9231D571C002A0E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5B2231D571C002A0E1F /* Assets.xcassets */; };
 		6042E5DA231D571C002A0E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5B2231D571C002A0E1F /* Assets.xcassets */; };
 		6042E5E5231D5853002A0E1F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5E4231D5853002A0E1F /* README.md */; };
+		605A88FE231FEF3000F21E73 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A88FA231FEEEB00F21E73 /* Sprite.swift */; };
+		605A88FF231FEF3100F21E73 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A88FA231FEEEB00F21E73 /* Sprite.swift */; };
+		605A8902231FEF6100F21E73 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8900231FEF5C00F21E73 /* Transform.swift */; };
+		605A8903231FEF6100F21E73 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8900231FEF5C00F21E73 /* Transform.swift */; };
+		605A890C231FF3F100F21E73 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8904231FF15100F21E73 /* GameObject.swift */; };
+		605A890D231FF3F200F21E73 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8904231FF15100F21E73 /* GameObject.swift */; };
+		605A8911231FF6B000F21E73 /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8910231FF6B000F21E73 /* ComponentSystem.swift */; };
+		605A8912231FF6B000F21E73 /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8910231FF6B000F21E73 /* ComponentSystem.swift */; };
+		605A8915231FF9B200F21E73 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8914231FF9B200F21E73 /* Updatable.swift */; };
+		605A8916231FF9B200F21E73 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8914231FF9B200F21E73 /* Updatable.swift */; };
+		605A8918231FF9E700F21E73 /* Behaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8917231FF9E700F21E73 /* Behaviour.swift */; };
+		605A8919231FF9E700F21E73 /* Behaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8917231FF9E700F21E73 /* Behaviour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +106,12 @@
 		6042E5D0231D571C002A0E1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6042E5D2231D571C002A0E1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6042E5E4231D5853002A0E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		605A88FA231FEEEB00F21E73 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		605A8900231FEF5C00F21E73 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		605A8904231FF15100F21E73 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		605A8910231FF6B000F21E73 /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
+		605A8914231FF9B200F21E73 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		605A8917231FF9E700F21E73 /* Behaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behaviour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +154,9 @@
 				60183582231EB61000A34C27 /* Engine.h */,
 				6018359F231EB7F900A34C27 /* Foo.swift */,
 				60183583231EB61000A34C27 /* Info.plist */,
+				605A8907231FF29500F21E73 /* GameObject */,
+				605A8906231FF27900F21E73 /* Components */,
+				605A8913231FF99A00F21E73 /* Behaviours */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -194,6 +215,33 @@
 				6042E5D2231D571C002A0E1F /* Info.plist */,
 			);
 			path = "LastPlanet macOS";
+			sourceTree = "<group>";
+		};
+		605A8906231FF27900F21E73 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				605A88FA231FEEEB00F21E73 /* Sprite.swift */,
+				605A8900231FEF5C00F21E73 /* Transform.swift */,
+				605A8910231FF6B000F21E73 /* ComponentSystem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		605A8907231FF29500F21E73 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				605A8904231FF15100F21E73 /* GameObject.swift */,
+			);
+			path = GameObject;
+			sourceTree = "<group>";
+		};
+		605A8913231FF99A00F21E73 /* Behaviours */ = {
+			isa = PBXGroup;
+			children = (
+				605A8917231FF9E700F21E73 /* Behaviour.swift */,
+				605A8914231FF9B200F21E73 /* Updatable.swift */,
+			);
+			path = Behaviours;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +431,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605A8915231FF9B200F21E73 /* Updatable.swift in Sources */,
+				605A890C231FF3F100F21E73 /* GameObject.swift in Sources */,
+				605A8918231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				601835A0231EB7F900A34C27 /* Foo.swift in Sources */,
+				605A88FE231FEF3000F21E73 /* Sprite.swift in Sources */,
+				605A8911231FF6B000F21E73 /* ComponentSystem.swift in Sources */,
+				605A8902231FEF6100F21E73 /* Transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +445,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605A8916231FF9B200F21E73 /* Updatable.swift in Sources */,
+				605A890D231FF3F200F21E73 /* GameObject.swift in Sources */,
+				605A8919231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				601835A1231EB7F900A34C27 /* Foo.swift in Sources */,
+				605A88FF231FEF3100F21E73 /* Sprite.swift in Sources */,
+				605A8912231FF6B000F21E73 /* ComponentSystem.swift in Sources */,
+				605A8903231FEF6100F21E73 /* Transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
