@@ -11,7 +11,7 @@ import GameplayKit
 public class GameObject: GKEntity {
 	override public func addComponent(_ component: GKComponent) {
 		super.addComponent(component)
-		ComponentSystem.add(gameObject: self)
+		ComponentSystem.addComponent(component)
 	}
 }
 

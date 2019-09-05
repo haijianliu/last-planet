@@ -12,18 +12,17 @@ public class ComponentSystem {
 	
 	static let sharedInstance = ComponentSystem()
 	
-	private var components = [GKComponentSystem<GKComponent>]()
+	private var updatables = [String: GKComponentSystem]()
 	
 	private init() {
-		components.append(GKComponentSystem(componentClass: Transform.self))
+		updatables[String(describing: TransformComponent.self)] = GKComponentSystem(componentClass: TransformComponent.self)
 	}
 	
-	static func add(gameObject: GameObject) {
-		for component in ComponentSystem.sharedInstance.components { component.addComponent(foundIn: gameObject) }
+	static func addComponent(_ component: GKComponent) {
+		ComponentSystem.sharedInstance.updatables[String(describing: type(of: component))]?.addComponent(component)
 	}
 	
 	public static func update(deltaTime: TimeInterval) {
-		for component in ComponentSystem.sharedInstance.components { component.update(deltaTime: deltaTime) }
+		for updatable in ComponentSystem.sharedInstance.updatables { updatable.value.update(deltaTime: deltaTime) }
 	}
 }
-

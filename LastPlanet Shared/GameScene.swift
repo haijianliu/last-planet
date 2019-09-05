@@ -35,7 +35,8 @@ class GameScene: SKScene, SKSceneDelegate {
 	func setUpScene() {
 		// Setup player entity with display and control components.
 		player = GameObject()
-		player?.addComponent(Transform())
+		player?.addComponent(TransformComponent())
+		player?.addComponent(SpriteComponent())
 		
 		
 		// Get label node from scene and store it for use later

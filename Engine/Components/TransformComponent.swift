@@ -8,7 +8,10 @@
 
 import GameplayKit
 
-public class Transform: GKComponent {
+public class TransformComponent: GKComponent {
+	
+	var position = float3(repeating: 0)
+	
 	override public func update(deltaTime seconds: TimeInterval) {
 		print(seconds)
 	}

@@ -8,6 +8,8 @@
 
 import GameplayKit
 
-public class Sprite: GKComponent {
-	
+public class SpriteComponent: GKComponent {
+	override public func update(deltaTime seconds: TimeInterval) {
+		print("xxxxxxxxxx")
+	}
 }
