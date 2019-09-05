@@ -13,6 +13,11 @@ public class TransformComponent: GKComponent {
 	var position = float3(repeating: 0)
 	
 	override public func update(deltaTime seconds: TimeInterval) {
-		print(seconds)
+		print(String(describing: type(of: self)) + " \(seconds)")
+		
+		if let sprite = entity?.component(ofType: SpriteComponent.self) {
+			sprite.node?.position = CGPoint(x: CGFloat(position.x), y: CGFloat(position.y))
+			sprite.node?.zPosition = CGFloat(position.z)
+		}
 	}
 }

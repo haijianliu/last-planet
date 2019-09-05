@@ -9,7 +9,10 @@
 import GameplayKit
 
 public class SpriteComponent: GKComponent {
+	
+	var node: SKNode?
+	
 	override public func update(deltaTime seconds: TimeInterval) {
-		print("xxxxxxxxxx")
+		print(String(describing: type(of: self)) + " \(seconds)")
 	}
 }
