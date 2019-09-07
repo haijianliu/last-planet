@@ -13,7 +13,7 @@ class GameScene: SKScene, SKSceneDelegate {
 	
 	fileprivate var label : SKLabelNode?
 	fileprivate var spinnyNode : SKShapeNode?
-	
+	fileprivate var playerNode : SKSpriteNode?
 	
 	var player: GameObject?
 	var previousUpdateTime: TimeInterval?
@@ -21,7 +21,7 @@ class GameScene: SKScene, SKSceneDelegate {
 	
 	class func newGameScene() -> GameScene {
 		// Load 'GameScene.sks' as an SKScene.
-		guard let scene = SKScene(fileNamed: "Scene.scnassets/GameScene") as? GameScene else {
+		guard let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
 			print("Failed to load GameScene.sks")
 			abort()
 		}
@@ -39,12 +39,20 @@ class GameScene: SKScene, SKSceneDelegate {
 		player?.addComponent(SpriteComponent())
 		
 		
+		self.playerNode = self.childNode(withName: "//SKSpriteNode") as? SKSpriteNode
+		if let playerNode = self.playerNode {
+			playerNode.texture?.filteringMode = .nearest
+			playerNode.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
+		}
+		
+		
 		// Get label node from scene and store it for use later
 		self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
 		if let label = self.label {
 			label.alpha = 0.0
 			label.run(SKAction.fadeIn(withDuration: 2.0))
 		}
+		
 		
 		// Create shape node to use during mouse interaction
 		let w = (self.size.width + self.size.height) * 0.05
@@ -99,6 +107,10 @@ class GameScene: SKScene, SKSceneDelegate {
 		previousUpdateTime = currentTime
 		
 		ComponentSystem.update(deltaTime: deltaTime)
+		
+		if let playerNode = self.playerNode {
+			playerNode.texture?.filteringMode = .nearest
+		}
 	}
 }
 
