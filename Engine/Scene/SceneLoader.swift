@@ -6,12 +6,6 @@
 //  Copyright © 2019 haijian. All rights reserved.
 //
 
-
-class BaseScene: SKScene {
-	weak var sceneManager: SceneManager!
-
-}
-
 /**
 A class encapsulating the work necessary to load a scene and its resources based on a given `SceneMetadata` instance.
 */
@@ -56,7 +50,7 @@ class SceneLoader {
 	let sceneMetadata: SceneMetadata
 	
 	/// The actual scene after it has been successfully loaded. Set in `SceneLoaderPreparingResourcesState`.
-	var scene: BaseScene?
+	var scene: Scene?
 	
 	/// The error, if one occurs, from fetching resources.
 	var error: Error?

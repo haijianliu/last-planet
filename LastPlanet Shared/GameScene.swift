@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import Engine
 
-class GameScene: SKScene, SKSceneDelegate {
+class GameScene: Scene, SKSceneDelegate {
 	
 	fileprivate var label : SKLabelNode?
 	fileprivate var spinnyNode : SKShapeNode?

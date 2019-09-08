@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>sceneType</key>
-		<string>HomeEndScene</string>
+		<string>GameScene</string>
 		<key>fileName</key>
 		<string>HomeScene</string>
 	</dict>

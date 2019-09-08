@@ -14,11 +14,12 @@ A structure to encapsulate metadata about a scene in the game.
 struct SceneMetadata {
 	// MARK: Properties
 	
+	/// The type to use when loading this scene
+	let sceneType: Scene.Type
+	
 	/// The base file name to use when loading the scene and related resources.
 	let fileName: String
 	
-//	/// The type to use when loading this scene (`HomeEndScene` or `LevelScene`).
-//	let sceneType: BaseScene.Type
 //
 //	/// The list of types with resources that should be preloaded for this scene.
 //	let loadableTypes: [ResourceLoadableType.Type]
@@ -50,16 +51,16 @@ struct SceneMetadata {
 		fileName = sceneConfiguration["fileName"] as! String
 		
 		let typeIdentifier = sceneConfiguration["sceneType"] as! String
-//		switch typeIdentifier {
-//		case "LevelScene":
-//			sceneType = LevelScene.self
-//
-//		case "HomeEndScene":
-//			sceneType = HomeEndScene.self
-//
-//		default:
-//			fatalError("Unidentified sceneType requested.")
-//		}
+		
+		/// get 'anyClass' with classname and namespace
+		let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+		
+		/// get 'AnyClass' with class name and namespace
+		guard let objectType = NSClassFromString("\(namespace).\(typeIdentifier)") else { fatalError("Unidentified sceneType requested") }
+		
+		guard let sceneType = objectType as? Scene.Type else { fatalError("Scene class must inherit `Engine.Scene` base class") }
+		self.sceneType = sceneType
+		
 		
 //		var loadableTypesForScene = [ResourceLoadableType.Type]()
 		
