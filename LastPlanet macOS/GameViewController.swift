@@ -10,7 +10,12 @@ import Cocoa
 import SpriteKit
 import GameplayKit
 
+import Engine
+
 class GameViewController: NSViewController {
+	
+	/// A manager for coordinating scene resources and presentation.
+	var sceneManager: SceneManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,13 @@ class GameViewController: NSViewController {
         
         skView.showsFPS = true
         skView.showsNodeCount = true
+			
+			let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")
+
+			let gameInput = GameInput()
+			sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+			
+			sceneManager.transitionToScene(identifier: .home)
     }
 
 }

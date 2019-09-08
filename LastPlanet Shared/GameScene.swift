@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 import Engine
 
 class GameScene: SKScene, SKSceneDelegate {
@@ -25,6 +26,19 @@ class GameScene: SKScene, SKSceneDelegate {
 			print("Failed to load GameScene.sks")
 			abort()
 		}
+		
+		guard let gkscene = GKScene(fileNamed: "GameScene") else {
+			print("Failed to load GameScene.sks")
+			abort()
+		}
+		
+//		
+//		for entity in scene.entities {
+//			print(entity.self)
+//			print(entity.components.count)
+//		}
+		
+		
 		
 		// Set the scale mode to scale to fit the window
 		scene.scaleMode = .aspectFill
