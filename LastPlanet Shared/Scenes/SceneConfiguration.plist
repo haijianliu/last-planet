@@ -6,7 +6,7 @@
 		<key>sceneType</key>
 		<string>GameScene</string>
 		<key>fileName</key>
-		<string>HomeScene</string>
+		<string>GameScene</string>
 	</dict>
 </array>
 </plist>

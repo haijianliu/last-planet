@@ -27,21 +27,8 @@ A manager for presenting `BaseScene`s. This allows for the preloading of future
 levels while the player is in game to minimize the time spent between levels.
 */
 public final class SceneManager {
-	// MARK: Types
-	
-	public enum SceneIdentifier {
-		case home, end
-		case currentLevel, nextLevel
-		case level(Int)
-	}
 	
 	// MARK: Properties
-	
-	/**
-	A mapping of `SceneMetadata` instances to the resource requests
-	responsible for accessing the necessary resources for those scenes.
-	*/
-	let sceneLoaderForMetadata: [SceneMetadata: SceneLoader]
 	
 	/**
 	The games input via connected control input sources. Used to
@@ -52,23 +39,6 @@ public final class SceneManager {
 	/// The view used to choreograph scene transitions.
 	let presentingView: SKView
 	
-	/// The next scene, assuming linear level progression.
-	var nextSceneMetadata: SceneMetadata {
-		let homeScene = sceneConfigurationInfo.first!
-		
-		// If there is no current scene, we can only transition back to the home scene.
-		guard let currentSceneMetadata = currentSceneMetadata else { return homeScene }
-		let index = sceneConfigurationInfo.index(of: currentSceneMetadata)!
-		
-		if index + 1 < sceneConfigurationInfo.count {
-			// Return the metadata for the next scene in the array.
-			return sceneConfigurationInfo[index + 1]
-		}
-		
-		// Otherwise, loop back to the home scene.
-		return homeScene
-	}
-	
 	/// The `SceneManager`'s delegate.
 	weak var delegate: SceneManagerDelegate?
 	
@@ -77,6 +47,12 @@ public final class SceneManager {
 	
 	/// The scene used to indicate progress when additional content needs to be loaded.
 //	private var progressScene: ProgressScene?
+	
+	/**
+	A mapping of `SceneMetadata` instances to the resource requests
+	responsible for accessing the necessary resources for those scenes.
+	*/
+	let sceneLoaders: [String: SceneLoader]
 	
 	/// Cached array of scene structure loaded from "SceneConfiguration.plist".
 	private let sceneConfigurationInfo: [SceneMetadata]
@@ -105,15 +81,14 @@ public final class SceneManager {
 			SceneMetadata(sceneConfiguration: $0)
 		}
 		
-		// Map `SceneMetadata` to a `SceneLoader` for each possible scene.
-		var sceneLoaderForMetadata = [SceneMetadata: SceneLoader]()
+		// Map to `SceneLoader` for each possible scene.
+		var sceneLoaders = [String: SceneLoader]()
 		for metadata in sceneConfigurationInfo {
-			let sceneLoader = SceneLoader(sceneMetadata: metadata)
-			sceneLoaderForMetadata[metadata] = sceneLoader
+			sceneLoaders[metadata.fileName] = SceneLoader(sceneMetadata: metadata)
 		}
 		
 		// Keep an immutable copy of the scene loader dictionary.
-		self.sceneLoaderForMetadata = sceneLoaderForMetadata
+		self.sceneLoaders = sceneLoaders
 		
 		/*
 		Because `SceneManager` is marked as `final` and cannot be subclassed,
@@ -138,22 +113,22 @@ public final class SceneManager {
 	This method should be called in preparation for the user needing to transition
 	to the scene in order to minimize the amount of load time.
 	*/
-	func prepareScene(identifier sceneIdentifier: SceneIdentifier) {
-		let loader = sceneLoader(forSceneIdentifier: sceneIdentifier)
-		_ = loader.asynchronouslyLoadSceneForPresentation()
+	func prepareScene(sceneFileNamed fileName: String) {
+		guard let loader = sceneLoaders[fileName] else { fatalError("Unidentified scene file name requested") }
+//		_ = loader.asynchronouslyLoadSceneForPresentation()
 	}
 	
 	/**
 	Loads and presents a scene if the all the resources for the scene are currently in memory.
 	Otherwise, presents a progress scene to monitor the progress of the resources being downloaded, or display an error if one has occurred.
 	*/
-	public func transitionToScene(identifier sceneIdentifier: SceneIdentifier) {
-		let loader = self.sceneLoader(forSceneIdentifier: sceneIdentifier)
-		
-//		if loader.stateMachine.currentState is SceneLoaderResourcesReadyState {
-//			// The scene is ready to be displayed.
+	public func transitionToScene(sceneFileNamed fileName: String) {
+		guard let loader = sceneLoaders[fileName] else { fatalError("Unidentified scene file name requested") }
+
+		if loader.stateMachine.currentState is SceneLoaderResourcesReadyState {
+			// The scene is ready to be displayed.
 //			presentScene(for: loader)
-//		}
+		}
 //		else {
 //			_ = loader.asynchronouslyLoadSceneForPresentation()
 //
@@ -251,13 +226,13 @@ public final class SceneManager {
 	#endif
 	
 	/// Determines all possible scenes that the player may reach after the current scene.
-	private func allPossibleNextScenes() -> Set<SceneMetadata> {
-		let homeScene = sceneConfigurationInfo.first!
+	private func allPossibleNextScenes() -> Set<String> {
+//		let homeScene = sceneConfigurationInfo.first!
 		
 		// If there is no current scene, we can only go to the home scene.
-		guard let currentSceneMetadata = currentSceneMetadata else {
-			return [homeScene]
-		}
+//		guard let currentSceneMetadata = currentSceneMetadata else {
+//			return [homeScene]
+//		}
 		
 		/*
 		In DemoBots, the user can always go home, replay the level, or progress linearly
@@ -266,7 +241,8 @@ public final class SceneManager {
 		This could be expanded to include the previous level, the furthest
 		level that has been unlocked, etc. depending on how the game progresses.
 		*/
-		return [homeScene, nextSceneMetadata, currentSceneMetadata]
+//		return [homeScene, nextSceneMetadata, currentSceneMetadata]
+		return [""]
 	}
 	
 	// MARK: SceneLoader Notifications
@@ -280,7 +256,7 @@ public final class SceneManager {
 			let sceneLoader = notification.object as! SceneLoader
 			
 			// Ensure this is a `sceneLoader` managed by this `SceneManager`.
-			guard let managedSceneLoader = self.sceneLoaderForMetadata[sceneLoader.sceneMetadata], managedSceneLoader === sceneLoader else { return }
+			guard let managedSceneLoader = self.sceneLoaders[sceneLoader.sceneMetadata.fileName], managedSceneLoader === sceneLoader else { return }
 			
 //			guard sceneLoader.stateMachine.currentState is SceneLoaderResourcesReadyState else {
 //				fatalError("Received complete notification, but the `stateMachine`'s current state is not ready.")
@@ -300,34 +276,6 @@ public final class SceneManager {
 			// Reset the scene loader's presentation preference.
 			sceneLoader.requestedForPresentation = false
 		}
-	}
-	
-	// MARK: Convenience
-	
-	/// Returns the scene loader associated with the scene identifier.
-	func sceneLoader(forSceneIdentifier sceneIdentifier: SceneIdentifier) -> SceneLoader {
-		let sceneMetadata: SceneMetadata
-		switch sceneIdentifier {
-		case .home:
-			sceneMetadata = sceneConfigurationInfo.first!
-			
-		case .currentLevel:
-			guard let currentSceneMetadata = currentSceneMetadata else {
-				fatalError("Current scene doesn't exist.")
-			}
-			sceneMetadata = currentSceneMetadata
-			
-		case .level(let number):
-			sceneMetadata = sceneConfigurationInfo[number]
-			
-		case .nextLevel:
-			sceneMetadata = nextSceneMetadata
-			
-		case .end:
-			sceneMetadata = sceneConfigurationInfo.last!
-		}
-		
-		return sceneLoaderForMetadata[sceneMetadata]!
 	}
 }
 

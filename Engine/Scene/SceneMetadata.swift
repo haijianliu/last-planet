@@ -102,24 +102,3 @@ struct SceneMetadata {
 //		loadableTypes = loadableTypesForScene
 	}
 }
-
-// MARK: Hashable
-
-/*
-Extend `SceneMetadata` to conform to the `Hashable` protocol so that it may be
-used as a dictionary key by `SceneManger`.
-*/
-extension SceneMetadata: Hashable {
-	var hashValue: Int {
-		return fileName.hashValue
-	}
-}
-
-/*
-In order to be `Hashable`, `SceneMetadata` must also be `Equatable`.
-This requirement is satisfied by providing an equality operator function
-that takes two `SceneMetadata` instances and determines if they are equal.
-*/
-func ==(lhs: SceneMetadata, rhs: SceneMetadata)-> Bool {
-	return lhs.hashValue == rhs.hashValue
-}

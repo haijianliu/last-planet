@@ -36,7 +36,7 @@ class GameViewController: NSViewController {
 			let gameInput = GameInput()
 			sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
 			
-			sceneManager.transitionToScene(identifier: .home)
+			sceneManager.transitionToScene(sceneFileNamed: "GameScene")
     }
 
 }
