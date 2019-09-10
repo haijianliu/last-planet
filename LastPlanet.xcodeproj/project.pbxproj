@@ -87,6 +87,8 @@
 		60B6E5832322C9C4007835A3 /* PlayerActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60B6E5812322C9C4007835A3 /* PlayerActions.sks */; };
 		60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */; };
 		60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */; };
+		60FE6BAD2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */; };
+		60FE6BAE2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,7 @@
 		60B6E5812322C9C4007835A3 /* PlayerActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerActions.sks; sourceTree = "<group>"; };
 		60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadingResourcesState.swift; sourceTree = "<group>"; };
 		60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadFailedState.swift; sourceTree = "<group>"; };
+		60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,18 +226,10 @@
 			children = (
 				60169EAB23254AC500A430E8 /* Scene.swift */,
 				60169E872324F79000A430E8 /* SceneManager.swift */,
+				60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */,
 				60169E8A2324F7DE00A430E8 /* SceneMetadata.swift */,
-				60169E8D2324F86600A430E8 /* SceneLoader.swift */,
-				60169E952325148300A430E8 /* SceneLoaderInitialState.swift */,
-				60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */,
-				60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */,
-				60A5D6B8232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift */,
-				60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */,
-				60169EAE23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift */,
-				60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */,
-				60A5D6C12326968F000DEB84 /* SceneOperation.swift */,
-				60A5D6BE23269618000DEB84 /* LoadSceneOperation.swift */,
-				60A5D6C423269715000DEB84 /* LoadResourcesOperation.swift */,
+				60FE6BAF2327F0A200A8DC56 /* Loader */,
+				60FE6BB02327F0CC00A8DC56 /* Task */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -360,6 +355,31 @@
 				60B6E5812322C9C4007835A3 /* PlayerActions.sks */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		60FE6BAF2327F0A200A8DC56 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				60169E8D2324F86600A430E8 /* SceneLoader.swift */,
+				60169E952325148300A430E8 /* SceneLoaderInitialState.swift */,
+				60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */,
+				60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */,
+				60A5D6B8232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift */,
+				60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */,
+				60169EAE23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift */,
+				60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		60FE6BB02327F0CC00A8DC56 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				60A5D6C12326968F000DEB84 /* SceneOperation.swift */,
+				60A5D6BE23269618000DEB84 /* LoadSceneOperation.swift */,
+				60A5D6C423269715000DEB84 /* LoadResourcesOperation.swift */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +580,7 @@
 				60A5D6C22326968F000DEB84 /* SceneOperation.swift in Sources */,
 				605A8915231FF9B200F21E73 /* Updatable.swift in Sources */,
 				605A890C231FF3F100F21E73 /* GameObject.swift in Sources */,
+				60FE6BAD2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
 				605A8918231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				601835A0231EB7F900A34C27 /* Foo.swift in Sources */,
 				60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */,
@@ -592,6 +613,7 @@
 				605A8919231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				601835A1231EB7F900A34C27 /* Foo.swift in Sources */,
 				60169EAD23254AC500A430E8 /* Scene.swift in Sources */,
+				60FE6BAE2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
 				60169EB023255CF800A430E8 /* SceneLoaderResourcesReadyState.swift in Sources */,
 				60A5D6BD23269550000DEB84 /* ResourceLoadableType.swift in Sources */,
 				605A88FF231FEF3100F21E73 /* SpriteComponent.swift in Sources */,

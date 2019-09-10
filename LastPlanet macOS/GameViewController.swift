@@ -12,7 +12,7 @@ import GameplayKit
 
 import Engine
 
-class GameViewController: NSViewController {
+class GameViewController: NSViewController, SceneManagerDelegate {
 	
 	/// A manager for coordinating scene resources and presentation.
 	var sceneManager: SceneManager!
@@ -35,8 +35,14 @@ class GameViewController: NSViewController {
 		
 		let gameInput = GameInput()
 		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
-		
+		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
+	}
+	
+	// MARK: SceneManagerDelegate
+	
+	func sceneManager(_ sceneManager: SceneManager, didTransitionTo scene: SKScene) {
+		print("Did transition to scene: \(scene.self)")
 	}
 	
 }

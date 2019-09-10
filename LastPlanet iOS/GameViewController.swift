@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import Engine
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SceneManagerDelegate {
 	
 	/// A manager for coordinating scene resources and presentation.
 	var sceneManager: SceneManager!
@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
 		
 		let gameInput = GameInput()
 		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
-		
+		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
 	}
 	
@@ -45,5 +45,11 @@ class GameViewController: UIViewController {
 	
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+	
+	// MARK: SceneManagerDelegate
+	
+	func sceneManager(_ sceneManager: SceneManager, didTransitionTo scene: SKScene) {
+		print("Did transition to scene: \(scene.self)")
 	}
 }

@@ -14,17 +14,17 @@ A structure to encapsulate metadata about a scene in the game.
 struct SceneMetadata {
 	// MARK: Properties
 	
-	/// The type to use when loading this scene
-	let sceneType: Scene.Type
-	
 	/// The base file name to use when loading the scene and related resources.
 	let fileName: String
 	
-	/// The list of types with resources that should be preloaded for this scene.
-	let loadableTypes: [ResourceLoadableType.Type]
+	/// The type to use when loading this scene
+	let sceneType: Scene.Type
 	
 	/// All on demand resources file names that pertain to the scene.
 	let onDemandResourcesFileNames: Set<String>
+	
+	/// The list of types with resources that should be preloaded for this scene.
+	let loadableTypes: [ResourceLoadableType.Type]
 	
 	/// A flag indicating whether the scene requires on demand resources to load.
 	var requiresOnDemandResources: Bool {

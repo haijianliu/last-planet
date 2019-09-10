@@ -17,11 +17,6 @@ public class GameInput {
 	// TODO:
 }
 
-protocol SceneManagerDelegate: class {
-	// Called whenever a scene manager has transitioned to a new scene.
-	func sceneManager(_ sceneManager: SceneManager, didTransitionTo scene: SKScene)
-}
-
 /**
 A manager for presenting `BaseScene`s. This allows for the preloading of future
 levels while the player is in game to minimize the time spent between levels.
@@ -40,7 +35,7 @@ public final class SceneManager {
 	let presentingView: SKView
 	
 	/// The `SceneManager`'s delegate.
-	weak var delegate: SceneManagerDelegate?
+	public weak var delegate: SceneManagerDelegate?
 	
 	/// The scene that is currently being presented.
 	private (set) var currentSceneMetadata: SceneMetadata?
