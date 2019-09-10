@@ -30,9 +30,9 @@ class SceneLoader {
 	lazy var stateMachine: GKStateMachine = {
 		var states = [
 			SceneLoaderInitialState(sceneLoader: self),
-//			SceneLoaderResourcesAvailableState(sceneLoader: self),
-//			SceneLoaderPreparingResourcesState(sceneLoader: self),
-//			SceneLoaderResourcesReadyState(sceneLoader: self)
+			SceneLoaderResourcesAvailableState(sceneLoader: self),
+			SceneLoaderPreparingResourcesState(sceneLoader: self),
+			SceneLoaderResourcesReadyState(sceneLoader: self)
 		]
 		
 		#if os(iOS) || os(tvOS)
@@ -94,8 +94,7 @@ class SceneLoader {
 	to take a long time to load.
 	*/
 	var requiresProgressSceneForPreparing: Bool {
-//		return sceneMetadata.loadableTypes.contains { $0.resourcesNeedLoading }
-		return false
+		return sceneMetadata.loadableTypes.contains { $0.resourcesNeedLoading }
 	}
 	
 	/**
@@ -121,14 +120,14 @@ class SceneLoader {
 			}
 			#endif
 			
-//			if let preparingState = stateMachine.currentState as? SceneLoaderPreparingResourcesState {
-//				/*
-//				The presentation of this scene is blocked by the preparation of
-//				the scene's resources, so bump up the quality of service of
-//				the operation queue that is preparing the resources.
-//				*/
-//				preparingState.operationQueue.qualityOfService = .userInteractive
-//			}
+			if let preparingState = stateMachine.currentState as? SceneLoaderPreparingResourcesState {
+				/*
+				The presentation of this scene is blocked by the preparation of
+				the scene's resources, so bump up the quality of service of
+				the operation queue that is preparing the resources.
+				*/
+				preparingState.operationQueue.qualityOfService = .userInteractive
+			}
 		}
 	}
 	
@@ -170,21 +169,19 @@ class SceneLoader {
 		}
 		
 		switch stateMachine.currentState {
-//		case is SceneLoaderResourcesReadyState:
-//			// No additional work needs to be done.
-//			progress = Progress(totalUnitCount: 0)
-//			
-//			
-//		case is SceneLoaderResourcesAvailableState:
-//			progress = Progress(totalUnitCount: 1)
-//			
-//			/*
-//			Begin preparing the scene's resources.
-//			
-//			The `SceneLoaderPreparingResourcesState`'s progress is added to the `SceneLoader`s
-//			progress when the operation is started.
-//			*/
-//			stateMachine.enter(SceneLoaderPreparingResourcesState.self)
+		case is SceneLoaderResourcesReadyState:
+			// No additional work needs to be done.
+			progress = Progress(totalUnitCount: 0)
+		case is SceneLoaderResourcesAvailableState:
+			progress = Progress(totalUnitCount: 1)
+			
+			/*
+			Begin preparing the scene's resources.
+			
+			The `SceneLoaderPreparingResourcesState`'s progress is added to the `SceneLoader`s
+			progress when the operation is started.
+			*/
+			stateMachine.enter(SceneLoaderPreparingResourcesState.self)
 			
 		default:
 			#if os(iOS) || os(tvOS)

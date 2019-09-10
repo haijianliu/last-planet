@@ -37,7 +37,7 @@ class SceneLoaderInitialState: GKState {
 		}
 		#elseif os(OSX)
 		// On OS X the resources will always be in local storage available for download.
-//		_ = stateMachine!.enter(SceneLoaderResourcesAvailableState.self)
+		_ = stateMachine!.enter(SceneLoaderResourcesAvailableState.self)
 		#endif
 	}
 	
@@ -48,7 +48,6 @@ class SceneLoaderInitialState: GKState {
 		}
 		#endif
 		
-//		return stateClass is SceneLoaderResourcesAvailableState.Type
-		return false
+		return stateClass is SceneLoaderResourcesAvailableState.Type
 	}
 }

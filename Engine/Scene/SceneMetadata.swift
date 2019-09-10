@@ -20,9 +20,8 @@ struct SceneMetadata {
 	/// The base file name to use when loading the scene and related resources.
 	let fileName: String
 	
-//
-//	/// The list of types with resources that should be preloaded for this scene.
-//	let loadableTypes: [ResourceLoadableType.Type]
+	/// The list of types with resources that should be preloaded for this scene.
+	let loadableTypes: [ResourceLoadableType.Type]
 	
 	/// All on demand resources tags that pertain to the scene.
 	let onDemandResourcesTags: Set<String>
@@ -62,7 +61,7 @@ struct SceneMetadata {
 		self.sceneType = sceneType
 		
 		
-//		var loadableTypesForScene = [ResourceLoadableType.Type]()
+		var loadableTypesForScene = [ResourceLoadableType.Type]()
 		
 		// The on demand resource tags for the scene (if needed).
 		if let tags = sceneConfiguration["onDemandResourcesTags"] as? [String] {
@@ -98,7 +97,7 @@ struct SceneMetadata {
 //			loadableTypesForScene = loadableTypesForScene + [PlayerBot.self, BeamNode.self]
 //		}
 //
-//		// Set up the `loadableTypes` to be prepared when the scene is requested.
-//		loadableTypes = loadableTypesForScene
+		// Set up the `loadableTypes` to be prepared when the scene is requested.
+		loadableTypes = loadableTypesForScene
 	}
 }

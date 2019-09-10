@@ -40,14 +40,12 @@ class SceneLoaderResourcesReadyState: GKState {
 	}
 	
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-//		switch stateClass {
-//		case is SceneLoaderResourcesAvailableState.Type, is SceneLoaderInitialState.Type:
-//			return true
-//
-//		default:
-//			return false
-//		}
-		return false
+		switch stateClass {
+		case is SceneLoaderResourcesAvailableState.Type, is SceneLoaderInitialState.Type:
+			return true
+		default:
+			return false
+		}
 	}
 	
 	override func willExit(to nextState: GKState) {

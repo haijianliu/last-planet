@@ -16,28 +16,27 @@ class GameViewController: NSViewController {
 	
 	/// A manager for coordinating scene resources and presentation.
 	var sceneManager: SceneManager!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let scene = GameScene.newGameScene()
-        
-        // Present the scene
-        let skView = self.view as! SKView
-        skView.presentScene(scene)
-        
-        skView.ignoresSiblingOrder = true
-        
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-			
-			let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")
-
-			let gameInput = GameInput()
-			sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
-			
-			sceneManager.transitionToScene(sceneFileNamed: "GameScene")
-    }
-
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+//		let scene = GameScene.newGameScene()
+		
+		// Present the scene
+		let skView = self.view as! SKView
+//		skView.presentScene(scene)
+		
+		skView.ignoresSiblingOrder = true
+		
+		skView.showsFPS = true
+		skView.showsNodeCount = true
+		
+//		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")
+		
+		let gameInput = GameInput()
+		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+		
+		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
+	}
+	
 }
-

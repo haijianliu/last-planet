@@ -115,7 +115,7 @@ public final class SceneManager {
 	*/
 	func prepareScene(sceneFileNamed fileName: String) {
 		guard let loader = sceneLoaders[fileName] else { fatalError("Unidentified scene file name requested") }
-//		_ = loader.asynchronouslyLoadSceneForPresentation()
+		_ = loader.asynchronouslyLoadSceneForPresentation()
 	}
 	
 	/**
@@ -127,22 +127,22 @@ public final class SceneManager {
 
 		if loader.stateMachine.currentState is SceneLoaderResourcesReadyState {
 			// The scene is ready to be displayed.
-//			presentScene(for: loader)
+			presentScene(for: loader)
 		}
-//		else {
-//			_ = loader.asynchronouslyLoadSceneForPresentation()
-//
-//			/*
-//			Mark the `sceneLoader` as `requestedForPresentation` to automatically
-//			present the scene when loading completes.
-//			*/
-//			loader.requestedForPresentation = true
-//
-//			// The scene requires a progress scene to be displayed while its resources are prepared.
-//			if loader.requiresProgressSceneForPreparing {
-//				presentProgressScene(for: loader)
-//			}
-//		}
+		else {
+			_ = loader.asynchronouslyLoadSceneForPresentation()
+
+			/*
+			Mark the `sceneLoader` as `requestedForPresentation` to automatically
+			present the scene when loading completes.
+			*/
+			loader.requestedForPresentation = true
+
+			// The scene requires a progress scene to be displayed while its resources are prepared.
+			if loader.requiresProgressSceneForPreparing {
+				presentProgressScene(for: loader)
+			}
+		}
 	}
 	
 	// MARK: Scene Presentation
@@ -184,7 +184,7 @@ public final class SceneManager {
 			self.delegate?.sceneManager(self, didTransitionTo: scene)
 			
 			// Restart the scene loading process.
-//			loader.stateMachine.enter(SceneLoaderInitialState.self)
+			loader.stateMachine.enter(SceneLoaderInitialState.self)
 		}
 	}
 	
@@ -258,9 +258,9 @@ public final class SceneManager {
 			// Ensure this is a `sceneLoader` managed by this `SceneManager`.
 			guard let managedSceneLoader = self.sceneLoaders[sceneLoader.sceneMetadata.fileName], managedSceneLoader === sceneLoader else { return }
 			
-//			guard sceneLoader.stateMachine.currentState is SceneLoaderResourcesReadyState else {
-//				fatalError("Received complete notification, but the `stateMachine`'s current state is not ready.")
-//			}
+			guard sceneLoader.stateMachine.currentState is SceneLoaderResourcesReadyState else {
+				fatalError("Received complete notification, but the `stateMachine`'s current state is not ready.")
+			}
 			
 			/*
 			If the `sceneLoader` associated with this state has been requested
