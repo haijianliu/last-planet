@@ -85,6 +85,8 @@
 		60B6E5802322C9A2007835A3 /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60B6E57E2322C9A2007835A3 /* TestScene.sks */; };
 		60B6E5822322C9C4007835A3 /* PlayerActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60B6E5812322C9C4007835A3 /* PlayerActions.sks */; };
 		60B6E5832322C9C4007835A3 /* PlayerActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60B6E5812322C9C4007835A3 /* PlayerActions.sks */; };
+		60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */; };
+		60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +180,8 @@
 		60B6E5792322C92F007835A3 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		60B6E57E2322C9A2007835A3 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
 		60B6E5812322C9C4007835A3 /* PlayerActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerActions.sks; sourceTree = "<group>"; };
+		60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadingResourcesState.swift; sourceTree = "<group>"; };
+		60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadFailedState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +226,11 @@
 				60169E8A2324F7DE00A430E8 /* SceneMetadata.swift */,
 				60169E8D2324F86600A430E8 /* SceneLoader.swift */,
 				60169E952325148300A430E8 /* SceneLoaderInitialState.swift */,
+				60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */,
+				60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */,
 				60A5D6B8232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift */,
-				60169EAE23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift */,
 				60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */,
+				60169EAE23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift */,
 				60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */,
 				60A5D6C12326968F000DEB84 /* SceneOperation.swift */,
 				60A5D6BE23269618000DEB84 /* LoadSceneOperation.swift */,
@@ -556,6 +562,8 @@
 				605A890C231FF3F100F21E73 /* GameObject.swift in Sources */,
 				605A8918231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				601835A0231EB7F900A34C27 /* Foo.swift in Sources */,
+				60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */,
+				60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */,
 				60169EAC23254AC500A430E8 /* Scene.swift in Sources */,
 				60169EAF23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift in Sources */,
 				60A5D6BC23269550000DEB84 /* ResourceLoadableType.swift in Sources */,

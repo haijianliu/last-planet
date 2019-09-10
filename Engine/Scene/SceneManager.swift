@@ -209,17 +209,17 @@ public final class SceneManager {
 	private func beginDownloadingNextPossibleScenes() {
 		let possibleScenes = allPossibleNextScenes()
 		
-		for sceneMetadata in possibleScenes {
-			let resourceRequest = sceneLoaderForMetadata[sceneMetadata]!
+		for fileName in possibleScenes {
+			let resourceRequest = sceneLoaders[fileName]!
 			resourceRequest.downloadResourcesIfNecessary()
 		}
 		
 		// Clean up scenes that are no longer accessible.
-		var unreachableScenes = Set(sceneLoaderForMetadata.keys)
-		unreachableScenes.subtract(possibleScenes)
+		var unreachableSceneFileNames = Set(sceneLoaders.keys)
+		unreachableSceneFileNames.subtract(possibleScenes)
 		
-		for sceneMetadata in unreachableScenes {
-			let resourceRequest = sceneLoaderForMetadata[sceneMetadata]!
+		for fileName in unreachableSceneFileNames {
+			let resourceRequest = sceneLoaders[fileName]!
 			resourceRequest.purgeResources()
 		}
 	}
@@ -227,22 +227,11 @@ public final class SceneManager {
 	
 	/// Determines all possible scenes that the player may reach after the current scene.
 	private func allPossibleNextScenes() -> Set<String> {
-//		let homeScene = sceneConfigurationInfo.first!
+		let homeScene = sceneConfigurationInfo.first!
 		
 		// If there is no current scene, we can only go to the home scene.
-//		guard let currentSceneMetadata = currentSceneMetadata else {
-//			return [homeScene]
-//		}
-		
-		/*
-		In DemoBots, the user can always go home, replay the level, or progress linearly
-		to the next level.
-		
-		This could be expanded to include the previous level, the furthest
-		level that has been unlocked, etc. depending on how the game progresses.
-		*/
-//		return [homeScene, nextSceneMetadata, currentSceneMetadata]
-		return [""]
+		guard let currentSceneMetadata = currentSceneMetadata else { return [homeScene.fileName] }
+		return currentSceneMetadata.onDemandResourcesFileNames
 	}
 	
 	// MARK: SceneLoader Notifications

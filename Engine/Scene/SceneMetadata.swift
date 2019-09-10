@@ -23,8 +23,8 @@ struct SceneMetadata {
 	/// The list of types with resources that should be preloaded for this scene.
 	let loadableTypes: [ResourceLoadableType.Type]
 	
-	/// All on demand resources tags that pertain to the scene.
-	let onDemandResourcesTags: Set<String>
+	/// All on demand resources file names that pertain to the scene.
+	let onDemandResourcesFileNames: Set<String>
 	
 	/// A flag indicating whether the scene requires on demand resources to load.
 	var requiresOnDemandResources: Bool {
@@ -39,7 +39,7 @@ struct SceneMetadata {
 		Check for on demand resources, not all scenes have resources that
 		need to be downloaded.
 		*/
-		return !onDemandResourcesTags.isEmpty
+		return !onDemandResourcesFileNames.isEmpty
 		#endif
 	}
 	
@@ -63,9 +63,9 @@ struct SceneMetadata {
 		
 		var loadableTypesForScene = [ResourceLoadableType.Type]()
 		
-		// The on demand resource tags for the scene (if needed).
-		if let tags = sceneConfiguration["onDemandResourcesTags"] as? [String] {
-			onDemandResourcesTags = Set(tags)
+		// The on demand resource file names for the scene (if needed).
+		if let fileNames = sceneConfiguration["onDemandResourcesFileNames"] as? [String] {
+			onDemandResourcesFileNames = Set(fileNames)
 			
 			/*
 			The tags are also used to determine which enemies need their resources
@@ -85,7 +85,7 @@ struct SceneMetadata {
 //			}
 		}
 		else {
-			onDemandResourcesTags = []
+			onDemandResourcesFileNames = []
 		}
 		
 		/*

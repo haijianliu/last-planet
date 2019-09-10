@@ -9,36 +9,41 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import Engine
 
 class GameViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let scene = GameScene.newGameScene()
-
-        // Present the scene
-        let skView = self.view as! SKView
-        skView.presentScene(scene)
-        
-        skView.ignoresSiblingOrder = true
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-    }
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+	
+	/// A manager for coordinating scene resources and presentation.
+	var sceneManager: SceneManager!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Present the scene
+		let skView = self.view as! SKView
+		skView.ignoresSiblingOrder = true
+		skView.showsFPS = true
+		skView.showsNodeCount = true
+		
+		let gameInput = GameInput()
+		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+		
+		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
+	}
+	
+	override var shouldAutorotate: Bool {
+		return true
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		if UIDevice.current.userInterfaceIdiom == .phone {
+			return .allButUpsideDown
+		} else {
+			return .all
+		}
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
 }
