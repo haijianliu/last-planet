@@ -20,21 +20,19 @@ class GameViewController: NSViewController, SceneManagerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-//		let scene = GameScene.newGameScene()
-		
-		// Present the scene
+		// Current view must be a spritekit view
 		let skView = self.view as! SKView
-//		skView.presentScene(scene)
-		
 		skView.ignoresSiblingOrder = true
-		
 		skView.showsFPS = true
 		skView.showsNodeCount = true
 		
-//		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")
-		
 		let gameInput = GameInput()
-		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+		/*
+		Load the game's `SceneConfiguration` plist. This provides information
+		about every scene in the game, and the order in which they should be displayed.
+		*/
+		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")!
+		sceneManager = SceneManager(forUrl: url, presentingView: skView, gameInput: gameInput)
 		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
 	}

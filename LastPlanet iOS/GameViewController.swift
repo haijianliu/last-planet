@@ -26,7 +26,12 @@ class GameViewController: UIViewController, SceneManagerDelegate {
 		skView.showsNodeCount = true
 		
 		let gameInput = GameInput()
-		sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
+		/*
+		Load the game's `SceneConfiguration` plist. This provides information
+		about every scene in the game, and the order in which they should be displayed.
+		*/
+		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")!
+		sceneManager = SceneManager(forUrl: url, presentingView: skView, gameInput: gameInput)
 		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
 	}

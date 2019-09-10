@@ -57,7 +57,7 @@ public final class SceneManager {
 	
 	// MARK: Initialization
 	
-	public init(presentingView: SKView, gameInput: GameInput) {
+	public init(forUrl url: URL, presentingView: SKView, gameInput: GameInput) {
 		self.presentingView = presentingView
 		self.gameInput = gameInput
 		
@@ -65,7 +65,6 @@ public final class SceneManager {
 		Load the game's `SceneConfiguration` plist. This provides information
 		about every scene in the game, and the order in which they should be displayed.
 		*/
-		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")!
 		let scenes = NSArray(contentsOf: url) as! [[String: AnyObject]]
 		
 		/*
