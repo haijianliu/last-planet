@@ -6,10 +6,6 @@
 //  Copyright © 2019 haijian. All rights reserved.
 //
 
-/**
-`SceneManager` is responsible for presenting scenes, requesting future scenes be downloaded, and loading assets in the background.
-*/
-
 import SpriteKit
 
 public class GameInput {
@@ -18,17 +14,15 @@ public class GameInput {
 }
 
 /**
-A manager for presenting `BaseScene`s. This allows for the preloading of future
-levels while the player is in game to minimize the time spent between levels.
+`SceneManager` is responsible for presenting scenes, requesting future scenes be downloaded, and loading assets in the background.
+
+A manager for presenting `BaseScene`s. This allows for the preloading of future levels while the player is in game to minimize the time spent between levels.
 */
 public final class SceneManager {
 	
 	// MARK: Properties
 	
-	/**
-	The games input via connected control input sources. Used to
-	provide control to scenes after presentation.
-	*/
+	/// The games input via connected control input sources. Used to provide control to scenes after presentation.
 	let gameInput: GameInput
 	
 	/// The view used to choreograph scene transitions.
@@ -57,6 +51,10 @@ public final class SceneManager {
 	
 	// MARK: Initialization
 	
+	/// Initialize scene manager with scene configuration file.
+	///
+	/// - Parameters:
+	///   - url: `scene configuration plist`. This provides information about every scene in the game
 	public init(forUrl url: URL, presentingView: SKView, gameInput: GameInput) {
 		self.presentingView = presentingView
 		self.gameInput = gameInput
@@ -101,19 +99,18 @@ public final class SceneManager {
 	// MARK: Scene Transitioning
 	
 	/**
-	Instructs the scene loader associated with the requested scene to begin
-	preparing the scene's resources.
+	Instructs the scene loader associated with the requested scene to begin preparing the scene's resources.
 	
-	This method should be called in preparation for the user needing to transition
-	to the scene in order to minimize the amount of load time.
+	This method should be called in preparation for the user needing to transition to the scene in order to minimize the amount of load time.
 	*/
-	func prepareScene(sceneFileNamed fileName: String) {
-		guard let loader = sceneLoaders[fileName] else { fatalError("Unidentified scene file name requested") }
-		_ = loader.asynchronouslyLoadSceneForPresentation()
-	}
+//	func prepareScene(sceneFileNamed fileName: String) {
+//		guard let loader = sceneLoaders[fileName] else { fatalError("Unidentified scene file name requested") }
+//		_ = loader.asynchronouslyLoadSceneForPresentation()
+//	}
 	
 	/**
 	Loads and presents a scene if the all the resources for the scene are currently in memory.
+	
 	Otherwise, presents a progress scene to monitor the progress of the resources being downloaded, or display an error if one has occurred.
 	*/
 	public func transitionToScene(sceneFileNamed fileName: String) {
@@ -160,8 +157,9 @@ public final class SceneManager {
 			scene.sceneManager = self
 			
 			// Present the scene with a transition.
-			let transition = SKTransition.fade(withDuration: GameplayConfiguration.SceneManager.transitionDuration)
-			self.presentingView.presentScene(scene, transition: transition)
+//			let transition = SKTransition.fade(withDuration: GameplayConfiguration.SceneManager.transitionDuration)
+//			self.presentingView.presentScene(scene, transition: transition)
+			self.presentingView.presentScene(scene)
 			
 			/*
 			When moving to a new scene in the game, we also start downloading
@@ -209,13 +207,13 @@ public final class SceneManager {
 		}
 		
 		// Clean up scenes that are no longer accessible.
-		var unreachableSceneFileNames = Set(sceneLoaders.keys)
-		unreachableSceneFileNames.subtract(possibleScenes)
-		
-		for fileName in unreachableSceneFileNames {
-			let resourceRequest = sceneLoaders[fileName]!
-			resourceRequest.purgeResources()
-		}
+//		var unreachableSceneFileNames = Set(sceneLoaders.keys)
+//		unreachableSceneFileNames.subtract(possibleScenes)
+//
+//		for fileName in unreachableSceneFileNames {
+//			let resourceRequest = sceneLoaders[fileName]!
+//			resourceRequest.purgeResources()
+//		}
 	}
 	#endif
 	
@@ -246,11 +244,7 @@ public final class SceneManager {
 			}
 			
 			/*
-			If the `sceneLoader` associated with this state has been requested
-			for presentation than we will present it here.
-			
-			This is used to present the `HomeScene` without any possibility of
-			a progress scene.
+			If the `sceneLoader` associated with this state has been requested for presentation than we will present it here.
 			*/
 			if sceneLoader.requestedForPresentation {
 				self.presentScene(for: sceneLoader)

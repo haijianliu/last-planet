@@ -98,23 +98,21 @@ class SceneLoader {
 	}
 	
 	/**
-	Indicates whether the scene we are loading has been requested to be presented
-	to the user. Used to change how aggressively the resources are being made available.
+	Indicates whether the scene we are loading has been requested to be presented to the user.
+	Used to change how aggressively the resources are being made available.
 	*/
 	var requestedForPresentation = false {
 		didSet {
 			/*
-			Don't adjust resource loading priorities if `requestedForPresentation`
-			was just set to `false`.
+			Don't adjust resource loading priorities if `requestedForPresentation` was just set to `false`.
 			*/
 			guard requestedForPresentation else { return }
 			
 			#if os(iOS) || os(tvOS)
 			if stateMachine.currentState is SceneLoaderDownloadingResourcesState {
 				/*
-				The presentation of this scene is blocked by downloading the
-				scene's resources, so mark the bundle resource request's loading
-				priority as urgent.
+				The presentation of this scene is blocked by downloading the scene's resources,
+				so mark the bundle resource request's loading priority as urgent.
 				*/
 				bundleResourceRequest?.loadingPriority = NSBundleResourceRequestLoadingPriorityUrgent
 			}
@@ -122,9 +120,8 @@ class SceneLoader {
 			
 			if let preparingState = stateMachine.currentState as? SceneLoaderPreparingResourcesState {
 				/*
-				The presentation of this scene is blocked by the preparation of
-				the scene's resources, so bump up the quality of service of
-				the operation queue that is preparing the resources.
+				The presentation of this scene is blocked by the preparation of the scene's resources,
+				so bump up the quality of service of the operation queue that is preparing the resources.
 				*/
 				preparingState.operationQueue.qualityOfService = .userInteractive
 			}
@@ -209,7 +206,7 @@ class SceneLoader {
 			// Increase the priority for the requested scene because it is about to be presented.
 			bundleResourceRequest.loadingPriority = 0.8
 			#elseif os(OSX)
-			fatalError("Invalid `currentState`: \(stateMachine.currentState).")
+			fatalError("Invalid `currentState`: \(String(describing: stateMachine.currentState)).")
 			#endif
 		}
 		

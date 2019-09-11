@@ -18,33 +18,6 @@ class GameScene: Scene, SKSceneDelegate {
 	
 	var player: GameObject?
 	var previousUpdateTime: TimeInterval?
-
-	
-	class func newGameScene() -> GameScene {
-		// Load 'GameScene.sks' as an SKScene.
-		guard let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
-			print("Failed to load GameScene.sks")
-			abort()
-		}
-		
-		guard let gkscene = GKScene(fileNamed: "GameScene") else {
-			print("Failed to load GameScene.sks")
-			abort()
-		}
-		
-//		
-//		for entity in scene.entities {
-//			print(entity.self)
-//			print(entity.components.count)
-//		}
-		
-		
-		
-		// Set the scale mode to scale to fit the window
-		scene.scaleMode = .aspectFill
-		
-		return scene
-	}
 	
 	func setUpScene() {
 		// Setup player entity with display and control components.

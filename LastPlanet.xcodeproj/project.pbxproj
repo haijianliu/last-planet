@@ -11,8 +11,6 @@
 		60169E892324F79000A430E8 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E872324F79000A430E8 /* SceneManager.swift */; };
 		60169E8E2324F86600A430E8 /* SceneLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E8D2324F86600A430E8 /* SceneLoader.swift */; };
 		60169E8F2324F86600A430E8 /* SceneLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E8D2324F86600A430E8 /* SceneLoader.swift */; };
-		60169E932325049100A430E8 /* GameplayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E902325042400A430E8 /* GameplayConfiguration.swift */; };
-		60169E942325049100A430E8 /* GameplayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E902325042400A430E8 /* GameplayConfiguration.swift */; };
 		60169E962325148300A430E8 /* SceneLoaderInitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E952325148300A430E8 /* SceneLoaderInitialState.swift */; };
 		60169E972325148300A430E8 /* SceneLoaderInitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60169E952325148300A430E8 /* SceneLoaderInitialState.swift */; };
 		60169E9B23251A0A00A430E8 /* SceneConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60169E98232519A000A430E8 /* SceneConfiguration.plist */; };
@@ -225,9 +223,10 @@
 			isa = PBXGroup;
 			children = (
 				60169EAB23254AC500A430E8 /* Scene.swift */,
+				60169E8A2324F7DE00A430E8 /* SceneMetadata.swift */,
 				60169E872324F79000A430E8 /* SceneManager.swift */,
 				60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */,
-				60169E8A2324F7DE00A430E8 /* SceneMetadata.swift */,
+				60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */,
 				60FE6BAF2327F0A200A8DC56 /* Loader */,
 				60FE6BB02327F0CC00A8DC56 /* Task */,
 			);
@@ -367,7 +366,6 @@
 				60A5D6B8232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift */,
 				60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */,
 				60169EAE23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift */,
-				60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -590,7 +588,6 @@
 				60A5D6BC23269550000DEB84 /* ResourceLoadableType.swift in Sources */,
 				605A88FE231FEF3000F21E73 /* SpriteComponent.swift in Sources */,
 				60169EA6232529F100A430E8 /* SceneMetadata.swift in Sources */,
-				60169E932325049100A430E8 /* GameplayConfiguration.swift in Sources */,
 				60A5D6C523269715000DEB84 /* LoadResourcesOperation.swift in Sources */,
 				60169E8E2324F86600A430E8 /* SceneLoader.swift in Sources */,
 				60A5D6B62326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift in Sources */,
@@ -618,7 +615,6 @@
 				60A5D6BD23269550000DEB84 /* ResourceLoadableType.swift in Sources */,
 				605A88FF231FEF3100F21E73 /* SpriteComponent.swift in Sources */,
 				60169EA7232529F100A430E8 /* SceneMetadata.swift in Sources */,
-				60169E942325049100A430E8 /* GameplayConfiguration.swift in Sources */,
 				60A5D6C623269715000DEB84 /* LoadResourcesOperation.swift in Sources */,
 				60169E8F2324F86600A430E8 /* SceneLoader.swift in Sources */,
 				60A5D6B72326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift in Sources */,

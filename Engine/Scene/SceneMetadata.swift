@@ -71,18 +71,12 @@ struct SceneMetadata {
 			The tags are also used to determine which enemies need their resources
 			to be preloaded for a `LevelScene`.
 			*/
-//			loadableTypesForScene += tags.flatMap { tag in
-//				switch tag {
-//				case "GroundBot":
-//					return GroundBot.self
-//					
-//				case "FlyingBot":
-//					return FlyingBot.self
-//					
-//				default:
-//					return nil
-//				}
-//			}
+			loadableTypesForScene += fileNames.compactMap { name in
+				/// get 'AnyClass' with class name and namespace
+				guard let objectType = NSClassFromString("\(namespace).\(name)") else { return nil }
+				guard let loadableType = objectType as? ResourceLoadableType.Type else { return nil }
+				return loadableType
+			}
 		}
 		else {
 			onDemandResourcesFileNames = []
