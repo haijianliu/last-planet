@@ -4,9 +4,9 @@
 <array>
 	<dict>
 		<key>sceneType</key>
-		<string>GameScene</string>
+		<string>TestScene</string>
 		<key>fileName</key>
-		<string>GameScene</string>
+		<string>TestScene</string>
 	</dict>
 </array>
 </plist>

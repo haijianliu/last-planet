@@ -33,7 +33,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
 		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")!
 		sceneManager = SceneManager(forUrl: url, presentingView: skView, gameInput: gameInput)
 		sceneManager.delegate = self
-		sceneManager.transitionToScene(sceneFileNamed: "GameScene")
+		sceneManager.transitionToScene(sceneFileNamed: "TestScene")
 	}
 	
 	override var shouldAutorotate: Bool {

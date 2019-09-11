@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import Engine
 
-class GameScene: Scene, SKSceneDelegate {
+class GameScene: Scene {
 	
 	fileprivate var label : SKLabelNode?
 	fileprivate var spinnyNode : SKShapeNode?
@@ -86,7 +86,6 @@ class GameScene: Scene, SKSceneDelegate {
 	
 	override func update(_ currentTime: TimeInterval) {
 		// Called before each frame is rendered
-		Foo.bar()
 		
 		// Track delta time since the last update
 		var deltaTime: TimeInterval = 0
