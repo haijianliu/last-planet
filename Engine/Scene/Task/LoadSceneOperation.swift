@@ -6,6 +6,8 @@
 //  Copyright © 2019 haijian. All rights reserved.
 //
 
+import GameplayKit
+
 /**
 A subclass of `Operation` that manages the loading of a `BaseScene`.
 */
@@ -47,6 +49,19 @@ class LoadSceneOperation: SceneOperation, ProgressReporting {
 		
 		// Load the scene into memory using `SKNode(fileNamed:)`.
 		let scene = sceneMetadata.sceneType.init(fileNamed: sceneMetadata.fileName)!
+		
+		// Load the entities to scene using `GKSKNodeComponent`
+		scene.gkScene = GKScene(fileNamed: sceneMetadata.fileName)
+		
+		for entity in scene.gkScene!.entities {
+			print(entity.component(ofType: GKSKNodeComponent.self)?.node as Any)
+			
+			scene.childNode(withName: (entity.component(ofType: GKSKNodeComponent.self)?.node.name)!)?.entity = entity
+		
+			for component in entity.components { print(component.self) }
+		}
+		
+		
 		
 		// Set the scale mode to scale to fit the window
 		scene.scaleMode = .aspectFill

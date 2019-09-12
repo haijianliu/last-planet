@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 /*
 Copyright (C) 2016 Apple Inc. All Rights Reserved.
@@ -26,6 +27,9 @@ A base class for all of the scenes in the app.
 //class Scene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate {
 open class Scene: SKScene, SKSceneDelegate {
 	// MARK: Properties
+	
+//	var entities: [GKEntity]?
+	var gkScene: GKScene?
 	
 	public var deltaTime: TimeInterval?
 	
@@ -97,6 +101,15 @@ open class Scene: SKScene, SKSceneDelegate {
 	override open func didMove(to view: SKView) {
 		super.didMove(to: view)
 		
+		for entity in gkScene!.entities {
+			ComponentSystem.addComponent(foundIn: entity)
+//			
+//			if let node = entity.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
+//				node.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
+//			}
+		}
+
+		
 //		updateCameraScale()
 //		overlay?.updateScale()
 		
@@ -121,6 +134,19 @@ open class Scene: SKScene, SKSceneDelegate {
 		// Track delta time since the last update
 		if let lastTime = previousUpdateTime { deltaTime = currentTime - lastTime }
 		previousUpdateTime = currentTime
+		
+		ComponentSystem.update(deltaTime: deltaTime ?? 0)
+		
+//		print(gkScene!.entities.count)
+//		for entity in gkScene!.entities {
+//			
+//			print(entity.component(ofType: GKSKNodeComponent.self)?.node.entity?.components.count)
+//			
+//			print(entity.components.count)
+//			for comp in entity.components {
+//				print(comp.self)
+//			}
+//		}
 	}
 	
 	// MARK: GameInputDelegate

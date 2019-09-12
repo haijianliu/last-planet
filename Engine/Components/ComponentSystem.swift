@@ -22,6 +22,10 @@ public class ComponentSystem {
 		ComponentSystem.sharedInstance.updatables[String(describing: type(of: component))]?.addComponent(component)
 	}
 	
+	static func addComponent(foundIn entity: GKEntity) {
+	for updatable in ComponentSystem.sharedInstance.updatables { updatable.value.addComponent(foundIn: entity) }
+	}
+	
 	public static func update(deltaTime: TimeInterval) {
 		for updatable in ComponentSystem.sharedInstance.updatables { updatable.value.update(deltaTime: deltaTime) }
 	}

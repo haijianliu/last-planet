@@ -22,9 +22,7 @@ class GameScene: Scene {
 	func setUpScene() {
 		// Setup player entity with display and control components.
 		player = GameObject()
-		player?.addComponent(TransformComponent())
-		player?.addComponent(SpriteComponent())
-		
+		player?.addComponent(TransformComponent())		
 		
 		self.playerNode = self.childNode(withName: "//SKSpriteNode") as? SKSpriteNode
 		if let playerNode = self.playerNode {

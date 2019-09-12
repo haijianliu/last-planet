@@ -31,4 +31,8 @@ class OrientationComponent: GKComponent {
 			zRotation = newValue.zRotation
 		}
 	}
+	
+	override public func update(deltaTime seconds: TimeInterval) {
+		print(String(describing: type(of: self)) + " \(seconds)")
+	}
 }
