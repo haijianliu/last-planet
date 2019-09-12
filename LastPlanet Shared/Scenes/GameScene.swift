@@ -7,29 +7,13 @@
 //
 
 import SpriteKit
-import GameplayKit
-import Engine
 
-class GameScene: Scene {
+class GameScene: SKScene {
 	
 	fileprivate var label : SKLabelNode?
 	fileprivate var spinnyNode : SKShapeNode?
-	fileprivate var playerNode : SKSpriteNode?
-	
-	var player: GameObject?
-	var previousUpdateTime: TimeInterval?
 	
 	func setUpScene() {
-		// Setup player entity with display and control components.
-		player = GameObject()
-		player?.addComponent(TransformComponent())		
-		
-		self.playerNode = self.childNode(withName: "//SKSpriteNode") as? SKSpriteNode
-		if let playerNode = self.playerNode {
-			playerNode.texture?.filteringMode = .nearest
-			playerNode.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
-		}
-		
 		
 		// Get label node from scene and store it for use later
 		self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -79,21 +63,6 @@ class GameScene: Scene {
 			spinny.position = pos
 			spinny.strokeColor = color
 			self.addChild(spinny)
-		}
-	}
-	
-	override func update(_ currentTime: TimeInterval) {
-		// Called before each frame is rendered
-		
-		// Track delta time since the last update
-		var deltaTime: TimeInterval = 0
-		if let lastTime = previousUpdateTime { deltaTime = currentTime - lastTime }
-		previousUpdateTime = currentTime
-		
-		ComponentSystem.update(deltaTime: deltaTime)
-		
-		if let playerNode = self.playerNode {
-			playerNode.texture?.filteringMode = .nearest
 		}
 	}
 }

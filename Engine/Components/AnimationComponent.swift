@@ -12,7 +12,7 @@ import GameplayKit
 /**
 A `GKComponent` that provides and manages the actions used to animate characters on screen as they move through different states and face different directions. `AnimationComponent` is supported by a structure called `Animation` that encapsulates information about an individual animation.
 */
-class AnimationComponent: GKComponent {
+public class AnimationComponent: GKComponent {
 	
 	/// The key to use when adding an optional action to the entity's body.
 	static let bodyActionKey = "bodyAction"
@@ -172,7 +172,7 @@ class AnimationComponent: GKComponent {
 	
 	// MARK: GKComponent Life Cycle
 	
-	override func update(deltaTime: TimeInterval) {
+	public override func update(deltaTime: TimeInterval) {
 		super.update(deltaTime: deltaTime)
 		
 		// If an animation has been requested, run the animation.

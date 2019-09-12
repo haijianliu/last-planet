@@ -15,10 +15,8 @@ class PlayerComponent: GKComponent {
 	override func didAddToEntity() {
 		super.didAddToEntity()
 		
+		// Setup player entity with components.
 		entity?.addComponent(TransformComponent())
-		
-		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
-			node.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
-		}
+//		entity?.addComponent(AnimationComponent())
 	}
 }

@@ -101,13 +101,8 @@ open class Scene: SKScene, SKSceneDelegate {
 	override open func didMove(to view: SKView) {
 		super.didMove(to: view)
 		
-		for entity in gkScene!.entities {
-			ComponentSystem.addComponent(foundIn: entity)
-//			
-//			if let node = entity.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
-//				node.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
-//			}
-		}
+		// Add all tracked component types to component system.
+		for entity in gkScene!.entities { ComponentSystem.addComponent(foundIn: entity) }
 
 		
 //		updateCameraScale()
@@ -131,7 +126,7 @@ open class Scene: SKScene, SKSceneDelegate {
 	override open func update(_ currentTime: TimeInterval) {
 		// Called before each frame is rendered
 		
-		// Track delta time since the last update
+		// Track delta time since last update
 		if let lastTime = previousUpdateTime { deltaTime = currentTime - lastTime }
 		previousUpdateTime = currentTime
 		
