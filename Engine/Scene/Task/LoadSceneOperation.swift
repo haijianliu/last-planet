@@ -53,14 +53,22 @@ class LoadSceneOperation: SceneOperation, ProgressReporting {
 		// Load the entities to scene using `GKSKNodeComponent`
 		scene.gkScene = GKScene(fileNamed: sceneMetadata.fileName)
 		
+		// Setup references between `GKScene` and `SKScene`
 		for entity in scene.gkScene!.entities {
-			print(entity.component(ofType: GKSKNodeComponent.self)?.node as Any)
 			
-			scene.childNode(withName: (entity.component(ofType: GKSKNodeComponent.self)?.node.name)!)?.entity = entity
+			if let node = scene.childNode(withName: (entity.component(ofType: GKSKNodeComponent.self)?.node.name)!) {
+				
+				print(node)
+				
+				// Set `GKEntity` to `SKScene` node
+				node.entity = entity
+				
+				// Set `SKNode` to `GKSKNodeComponent`
+				entity.component(ofType: GKSKNodeComponent.self)?.node = node
+			}
 		
 			for component in entity.components { print(component.self) }
 		}
-		
 		
 		
 		// Set the scale mode to scale to fit the window

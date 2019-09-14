@@ -14,13 +14,6 @@ class TestScene: Scene {
 	
 	override func didMove(to view: SKView) {
 		super.didMove(to: view)
-		
-		// Setup player entity with display and control components.
-		
-		if let player = self.childNode(withName: "//SKSpriteNode") as? SKSpriteNode {
-			player.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
-		}
-
 	}
 	
 	override func update(_ currentTime: TimeInterval) {

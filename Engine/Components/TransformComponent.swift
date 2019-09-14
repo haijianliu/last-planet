@@ -11,13 +11,14 @@ import GameplayKit
 public class TransformComponent: GKComponent {
 	
 	var position = float3(repeating: 0)
+	var running = false
 	
 	override public func didAddToEntity() {
 		super.didAddToEntity()
 		
 		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
 			node.texture?.filteringMode = .nearest
-//			node.run(SKAction.init(named: "PlayerIdle")!, withKey: "somekey")
+//			node.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
 		}
 	}
 	
@@ -29,7 +30,13 @@ public class TransformComponent: GKComponent {
 		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
 			node.position = CGPoint(x: CGFloat(position.x), y: CGFloat(position.y))
 			node.zPosition = CGFloat(position.z)
-//			print(node.action(forKey: "somekey")?.duration)
+			node.texture?.filteringMode = .nearest
+
+			if !running {
+				node.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
+				running = true
+			}
+
 			
 		}
 	}
