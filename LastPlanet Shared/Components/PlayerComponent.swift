@@ -17,6 +17,11 @@ class PlayerComponent: GKComponent {
 		
 		// Setup player entity with components.
 		entity?.addComponent(TransformComponent())
-//		entity?.addComponent(AnimationComponent())
+		
+		let animationComponent = AnimationComponent(ForActionKey: "PlayerTextureAnimation")
+		animationComponent.addAnimation(named: "PlayerIdle")
+		animationComponent.requestedAnimationName = "PlayerIdle"
+		entity?.addComponent(animationComponent)
+		
 	}
 }

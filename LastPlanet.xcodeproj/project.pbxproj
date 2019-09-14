@@ -29,16 +29,8 @@
 		6018359E231EB7BF00A34C27 /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60183582231EB61000A34C27 /* Engine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6026CA0F232A87890061D7BF /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026CA0E232A87890061D7BF /* PlayerComponent.swift */; };
 		6026CA10232A878A0061D7BF /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026CA0E232A87890061D7BF /* PlayerComponent.swift */; };
-		6026CA14232A8F970061D7BF /* AnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E5C2322BB3000730DA3 /* AnimationState.swift */; };
-		6026CA15232A8F970061D7BF /* AnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E5C2322BB3000730DA3 /* AnimationState.swift */; };
 		6026CA16232A8F970061D7BF /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E502322B87E00730DA3 /* AnimationComponent.swift */; };
 		6026CA17232A8F970061D7BF /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E502322B87E00730DA3 /* AnimationComponent.swift */; };
-		6026CA18232A8F970061D7BF /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E532322B9B000730DA3 /* CompassDirection.swift */; };
-		6026CA19232A8F970061D7BF /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E532322B9B000730DA3 /* CompassDirection.swift */; };
-		6026CA1A232A8F970061D7BF /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E592322BADC00730DA3 /* Animation.swift */; };
-		6026CA1B232A8F970061D7BF /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E592322BADC00730DA3 /* Animation.swift */; };
-		6026CA1C232A8F970061D7BF /* OrientationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E562322BA8B00730DA3 /* OrientationComponent.swift */; };
-		6026CA1D232A8F970061D7BF /* OrientationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60982E562322BA8B00730DA3 /* OrientationComponent.swift */; };
 		6042E5BB231D571C002A0E1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042E5BA231D571C002A0E1F /* AppDelegate.swift */; };
 		6042E5BD231D571C002A0E1F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042E5BC231D571C002A0E1F /* GameViewController.swift */; };
 		6042E5C0231D571C002A0E1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6042E5BE231D571C002A0E1F /* Main.storyboard */; };
@@ -163,10 +155,6 @@
 		605A8917231FF9E700F21E73 /* Behaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behaviour.swift; sourceTree = "<group>"; };
 		607166C0232943560023027A /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		60982E502322B87E00730DA3 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
-		60982E532322B9B000730DA3 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
-		60982E562322BA8B00730DA3 /* OrientationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationComponent.swift; sourceTree = "<group>"; };
-		60982E592322BADC00730DA3 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		60982E5C2322BB3000730DA3 /* AnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationState.swift; sourceTree = "<group>"; };
 		60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderResourcesAvailableState.swift; sourceTree = "<group>"; };
 		60A5D6B8232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderPreparingResourcesState.swift; sourceTree = "<group>"; };
 		60A5D6BB23269550000DEB84 /* ResourceLoadableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadableType.swift; sourceTree = "<group>"; };
@@ -304,11 +292,7 @@
 			children = (
 				605A8910231FF6B000F21E73 /* ComponentSystem.swift */,
 				605A8900231FEF5C00F21E73 /* TransformComponent.swift */,
-				60982E532322B9B000730DA3 /* CompassDirection.swift */,
-				60982E562322BA8B00730DA3 /* OrientationComponent.swift */,
 				60982E502322B87E00730DA3 /* AnimationComponent.swift */,
-				60982E592322BADC00730DA3 /* Animation.swift */,
-				60982E5C2322BB3000730DA3 /* AnimationState.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -565,15 +549,11 @@
 			files = (
 				60A5D6C22326968F000DEB84 /* SceneOperation.swift in Sources */,
 				605A8915231FF9B200F21E73 /* Updatable.swift in Sources */,
-				6026CA15232A8F970061D7BF /* AnimationState.swift in Sources */,
 				60FE6BAD2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
 				605A8918231FF9E700F21E73 /* Behaviour.swift in Sources */,
-				6026CA1D232A8F970061D7BF /* OrientationComponent.swift in Sources */,
 				60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */,
 				60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */,
-				6026CA19232A8F970061D7BF /* CompassDirection.swift in Sources */,
 				60169EAC23254AC500A430E8 /* Scene.swift in Sources */,
-				6026CA1B232A8F970061D7BF /* Animation.swift in Sources */,
 				60169EAF23255CF800A430E8 /* SceneLoaderResourcesReadyState.swift in Sources */,
 				60A5D6BC23269550000DEB84 /* ResourceLoadableType.swift in Sources */,
 				60169EA6232529F100A430E8 /* SceneMetadata.swift in Sources */,
@@ -594,10 +574,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6026CA1A232A8F970061D7BF /* Animation.swift in Sources */,
 				60A5D6C32326968F000DEB84 /* SceneOperation.swift in Sources */,
 				605A8916231FF9B200F21E73 /* Updatable.swift in Sources */,
-				6026CA1C232A8F970061D7BF /* OrientationComponent.swift in Sources */,
 				605A8919231FF9E700F21E73 /* Behaviour.swift in Sources */,
 				60169EAD23254AC500A430E8 /* Scene.swift in Sources */,
 				60FE6BAE2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
@@ -611,11 +589,9 @@
 				60A5D6C023269618000DEB84 /* LoadSceneOperation.swift in Sources */,
 				605A8912231FF6B000F21E73 /* ComponentSystem.swift in Sources */,
 				60A5D6BA232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift in Sources */,
-				6026CA18232A8F970061D7BF /* CompassDirection.swift in Sources */,
 				60169E972325148300A430E8 /* SceneLoaderInitialState.swift in Sources */,
 				60169E892324F79000A430E8 /* SceneManager.swift in Sources */,
 				605A8903231FEF6100F21E73 /* TransformComponent.swift in Sources */,
-				6026CA14232A8F970061D7BF /* AnimationState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

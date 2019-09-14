@@ -10,34 +10,19 @@ import GameplayKit
 
 public class TransformComponent: GKComponent {
 	
-	var position = float3(repeating: 0)
-	var running = false
-	
-	override public func didAddToEntity() {
-		super.didAddToEntity()
-		
-		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
-			node.texture?.filteringMode = .nearest
-//			node.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
-		}
-	}
+	public var position = float3(repeating: 0)
+	public var scale = float2(repeating: 1)
 	
 	override public func update(deltaTime seconds: TimeInterval) {
 		super.update(deltaTime: seconds)
 		
 		print(String(describing: type(of: self)) + " \(seconds)")
 		
-		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode {
+		if let node = entity?.component(ofType: GKSKNodeComponent.self)?.node {
 			node.position = CGPoint(x: CGFloat(position.x), y: CGFloat(position.y))
 			node.zPosition = CGFloat(position.z)
-			node.texture?.filteringMode = .nearest
-
-			if !running {
-				node.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
-				running = true
-			}
-
-			
+			node.xScale = CGFloat(scale.x)
+			node.yScale = CGFloat(scale.y)
 		}
 	}
 }

@@ -16,6 +16,7 @@ public class ComponentSystem {
 	
 	private init() {
 		updatables[String(describing: TransformComponent.self)] = GKComponentSystem(componentClass: TransformComponent.self)
+		updatables[String(describing: AnimationComponent.self)] = GKComponentSystem(componentClass: AnimationComponent.self)
 	}
 	
 	static func addComponent(_ component: GKComponent) {
@@ -27,6 +28,8 @@ public class ComponentSystem {
 	}
 	
 	public static func update(deltaTime: TimeInterval) {
-		for updatable in ComponentSystem.sharedInstance.updatables { updatable.value.update(deltaTime: deltaTime) }
+		for updatable in ComponentSystem.sharedInstance.updatables {
+			DispatchQueue.main.async { updatable.value.update(deltaTime: deltaTime) }
+		}
 	}
 }
