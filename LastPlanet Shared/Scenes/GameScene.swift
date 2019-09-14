@@ -15,6 +15,10 @@ class GameScene: SKScene {
 	
 	func setUpScene() {
 		
+		if let player = self.childNode(withName: "//SKSpriteNode") as? SKSpriteNode {
+			player.run(SKAction.init(named: "PlayerIdle")!, withKey: "PlayerTextureAction")
+		}
+		
 		// Get label node from scene and store it for use later
 		self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
 		if let label = self.label {

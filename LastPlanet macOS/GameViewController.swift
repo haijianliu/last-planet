@@ -35,6 +35,9 @@ class GameViewController: NSViewController, SceneManagerDelegate {
 		sceneManager = SceneManager(forUrl: url, presentingView: skView, gameInput: gameInput)
 		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "TestScene")
+		
+//		let scene = GameScene(fileNamed: "GameScene")
+//		skView.presentScene(scene)
 	}
 	
 	// MARK: SceneManagerDelegate
