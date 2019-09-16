@@ -9,7 +9,7 @@
 import simd
 
 /// Delegate methods for responding to control input that applies to the `PlayerBot`.
-public protocol ControlInputSourceDelegate: class {
+protocol ControlInputSourceDelegate: class {
 	/**
 	Update the `ControlInputSourceDelegate` with new displacement
 	in a top down 2D coordinate system (x, y):
@@ -22,7 +22,7 @@ public protocol ControlInputSourceDelegate: class {
 }
 
 /// A protocol to be adopted by classes that provide control input and notify their delegates when input is available.
-public protocol ControlInputSourceType: class {
+protocol ControlInputSourceType: class {
 	/// A delegate that receives information about actions that apply to the entity.
 	var delegate: ControlInputSourceDelegate? { get set }
 	

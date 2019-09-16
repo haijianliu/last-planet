@@ -50,9 +50,10 @@ public final class SceneManager {
 	///
 	/// - Parameters:
 	///   - url: `scene configuration plist`. This provides information about every scene in the game
-	public init(forUrl url: URL, presentingView: SKView, gameInput: GameInput) {
+	public init(forUrl url: URL, presentingView: SKView) {
 		self.presentingView = presentingView
-		self.gameInput = gameInput
+		
+		self.gameInput = GameInput(nativeControlInputSource: KeyboardControlInputSource())
 		
 		/*
 		Load the game's `SceneConfiguration` plist. This provides information

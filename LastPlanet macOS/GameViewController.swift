@@ -26,14 +26,12 @@ class GameViewController: NSViewController, SceneManagerDelegate {
 		skView.showsFPS = true
 		skView.showsNodeCount = true
 		
-		let keyboardControlInputSource = KeyboardControlInputSource()
-		let gameInput = GameInput(nativeControlInputSource: keyboardControlInputSource)
 		/*
 		Load the game's `SceneConfiguration` plist. This provides information
 		about every scene in the game, and the order in which they should be displayed.
 		*/
 		let url = Bundle.main.url(forResource: "SceneConfiguration", withExtension: "plist")!
-		sceneManager = SceneManager(forUrl: url, presentingView: skView, gameInput: gameInput)
+		sceneManager = SceneManager(forUrl: url, presentingView: skView)
 		sceneManager.delegate = self
 		sceneManager.transitionToScene(sceneFileNamed: "TestScene")
 		

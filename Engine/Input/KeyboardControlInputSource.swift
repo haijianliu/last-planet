@@ -11,14 +11,13 @@ import simd
 /**
 An implementation of the `ControlInputSourceType` protocol that enables support for keyboard input on OS X.
 */
-public class KeyboardControlInputSource: ControlInputSourceType {
+class KeyboardControlInputSource: ControlInputSourceType {
 	
-	public init() {	}
 	// MARK: Properties
 	
-	weak public var delegate: ControlInputSourceDelegate?
+	weak var delegate: ControlInputSourceDelegate?
 	
-	public func resetControlState() {
+	func resetControlState() {
 		delegate?.controlInputSource(self, didUpdateAxis: nil)
 	}
 	

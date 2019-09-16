@@ -56,7 +56,7 @@ public class Input: ControlInputSourceDelegate {
 	
 	// MARK: ControlInputSourceDelegate
 	
-	public func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateAxis axis: float2?) {
+	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateAxis axis: float2?) {
 		print(String(describing: type(of: self)) + " did update axis: " + String(describing: axis))
 		
 		state.axis = axis

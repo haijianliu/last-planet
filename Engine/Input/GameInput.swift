@@ -61,7 +61,7 @@ public class GameInput {
 	
 	// MARK: Initialization
 	
-	public init(nativeControlInputSource: ControlInputSourceType) {
+	init(nativeControlInputSource: ControlInputSourceType) {
 		self.nativeControlInputSource = nativeControlInputSource
 		
 		self.nativeControlInputSource.delegate = Input.sharedInstance
