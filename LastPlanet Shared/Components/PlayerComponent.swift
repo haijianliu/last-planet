@@ -9,7 +9,7 @@
 import GameplayKit
 import Engine
 
-class PlayerComponent: GKComponent {
+class PlayerComponent: GKComponent, Updatable {
 	// MARK: Properties
 	
 	override func didAddToEntity() {
@@ -22,6 +22,14 @@ class PlayerComponent: GKComponent {
 		animationComponent.addAnimation(named: "PlayerIdle")
 		animationComponent.requestedAnimationName = "PlayerIdle"
 		entity?.addComponent(animationComponent)
+	}
+	
+	override func update(deltaTime seconds: TimeInterval) {
+		super.update(deltaTime: seconds)
 		
+		guard let component = entity?.component(ofType: TransformComponent.self) else { return }
+		if Input.axis != nil {
+			component.scale.x = -component.scale.x
+		}
 	}
 }

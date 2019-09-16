@@ -102,7 +102,15 @@ open class Scene: SKScene, SKSceneDelegate {
 		super.didMove(to: view)
 		
 		// Add all tracked component types to component system.
-		for entity in gkScene!.entities { ComponentSystem.addComponent(foundIn: entity) }
+		for entity in gkScene!.entities {
+			ComponentSystem.addComponent(foundIn: entity)
+			
+			for component in entity.components {
+				if let updateComponent = component as? Updatable {
+					ComponentSystem.addUpdatable(updateComponent)
+				}
+			}
+		}
 
 		
 //		updateCameraScale()
@@ -142,6 +150,10 @@ open class Scene: SKScene, SKSceneDelegate {
 //				print(comp.self)
 //			}
 //		}
+	}
+	
+	override open func didFinishUpdate() {
+		sceneManager.gameInput.nativeControlInputSource.resetControlState()
 	}
 	
 	// MARK: GameInputDelegate

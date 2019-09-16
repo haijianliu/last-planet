@@ -107,6 +107,8 @@ public class AnimationComponent: GKComponent {
 			
 			// Add the new action to the node if an action exists.
 			node.run(SKAction.repeatForever(animation.action), withKey: actionKey)
+			
+			print("Run animation: <\(Animation.self)> name: `\(animation.actionName)` action: \(animation.action)")
 		}
 		
 		// Remember the animation currently running.

@@ -8,11 +8,6 @@
 
 import SpriteKit
 
-public class GameInput {
-	public init(){}
-	// TODO:
-}
-
 /**
 `SceneManager` is responsible for presenting scenes, requesting future scenes be downloaded, and loading assets in the background.
 

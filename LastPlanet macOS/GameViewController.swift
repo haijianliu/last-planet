@@ -26,7 +26,8 @@ class GameViewController: NSViewController, SceneManagerDelegate {
 		skView.showsFPS = true
 		skView.showsNodeCount = true
 		
-		let gameInput = GameInput()
+		let keyboardControlInputSource = KeyboardControlInputSource()
+		let gameInput = GameInput(nativeControlInputSource: keyboardControlInputSource)
 		/*
 		Load the game's `SceneConfiguration` plist. This provides information
 		about every scene in the game, and the order in which they should be displayed.
