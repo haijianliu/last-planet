@@ -12,12 +12,15 @@ import GameplayKit
 public class Input: ControlInputSourceDelegate {
 	
 	static let sharedInstance = Input()
-	private init() { }
+	private init() {
+		
+	}
 	
 	// MARK: Types
 	
 	struct InputState {
 		var axis: float2?
+		var fire: Float?
 		static let noInput = InputState()
 	}
 	
@@ -25,6 +28,10 @@ public class Input: ControlInputSourceDelegate {
 	
 	static public var axis: float2? {
 		get { return Input.sharedInstance.state.axis }
+	}
+	
+	static public func keyDown(onKeycode code: Keycode) -> Float? {
+		return Input.sharedInstance.keyState[code.rawValue]
 	}
 	
 	/**
@@ -54,12 +61,26 @@ public class Input: ControlInputSourceDelegate {
 		}
 	}
 	
+	var keyState = [Float?](repeating: nil, count: 256)
+	
 	// MARK: ControlInputSourceDelegate
 	
 	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateAxis axis: float2?) {
 		print(String(describing: type(of: self)) + " did update axis: " + String(describing: axis))
 		
 		state.axis = axis
+	}
+	
+	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateFire fire: Float?) {
+		state.fire = fire
+	}
+	
+	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateKey keycode: Int, for value: Float?) {
+		keyState[keycode] = value
+	}
+	
+	func resetInputState() {
+		keyState = [Float?](repeating: nil, count: 256)
 	}
 	
 	// MARK: Convenience

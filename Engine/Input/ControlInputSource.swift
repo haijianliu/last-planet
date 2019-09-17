@@ -19,6 +19,12 @@ protocol ControlInputSourceDelegate: class {
 	Right: (1.0, 0.0)
 	*/
 	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateAxis axis: float2?)
+	
+	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateFire fire: Float?)
+	
+	func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateKey keycode: Int, for value: Float?)
+	
+	func resetInputState()
 }
 
 /// A protocol to be adopted by classes that provide control input and notify their delegates when input is available.

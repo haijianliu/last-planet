@@ -47,6 +47,7 @@
 		605A8903231FEF6100F21E73 /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8900231FEF5C00F21E73 /* TransformComponent.swift */; };
 		605A8911231FF6B000F21E73 /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8910231FF6B000F21E73 /* ComponentSystem.swift */; };
 		605A8912231FF6B000F21E73 /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8910231FF6B000F21E73 /* ComponentSystem.swift */; };
+		6063F5E52331169B0019EC32 /* keycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6063F5E42331169B0019EC32 /* keycode.swift */; };
 		607166C1232943560023027A /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607166C0232943560023027A /* TestScene.swift */; };
 		607166C2232943C30023027A /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607166C0232943560023027A /* TestScene.swift */; };
 		60944BA0232F5AA000A6CE48 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60944B9F232F5AA000A6CE48 /* Updatable.swift */; };
@@ -158,6 +159,7 @@
 		6042E5E4231D5853002A0E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		605A8900231FEF5C00F21E73 /* TransformComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		605A8910231FF6B000F21E73 /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
+		6063F5E42331169B0019EC32 /* keycode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keycode.swift; sourceTree = "<group>"; };
 		607166C0232943560023027A /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		60944B9F232F5AA000A6CE48 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		60982E502322B87E00730DA3 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				60EE13B1232D1393002462EA /* GameInput.swift */,
 				60EE1398232D07AF002462EA /* ControlInputSource.swift */,
 				60EE13A5232D1204002462EA /* KeyboardControlInputSource.swift */,
+				6063F5E42331169B0019EC32 /* keycode.swift */,
 				60EE13A8232D1225002462EA /* SceneKeyboardEventExtension.swift */,
 			);
 			path = Input;
@@ -599,6 +602,7 @@
 				6026CA16232A8F970061D7BF /* AnimationComponent.swift in Sources */,
 				60169EB023255CF800A430E8 /* SceneLoaderResourcesReadyState.swift in Sources */,
 				60A5D6BD23269550000DEB84 /* ResourceLoadableType.swift in Sources */,
+				6063F5E52331169B0019EC32 /* keycode.swift in Sources */,
 				60EE13AA232D1225002462EA /* SceneKeyboardEventExtension.swift in Sources */,
 				60169EA7232529F100A430E8 /* SceneMetadata.swift in Sources */,
 				60A5D6C623269715000DEB84 /* LoadResourcesOperation.swift in Sources */,

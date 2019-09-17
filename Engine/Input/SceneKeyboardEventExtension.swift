@@ -33,8 +33,17 @@ extension Scene {
 	}
 	
 	override open func keyDown(with event: NSEvent) {
-		print(event.characters as Any)
-//		guard let characters = event.characters else { return }
+		
+		
+		keyboardControlInputSource.delegate?.controlInputSource(keyboardControlInputSource, didUpdateKey: Int(event.keyCode), for: 1.0)
+		
+//		guard let characters = event.charactersIgnoringModifiers else { return }
+//
+//
+//		print(characters)
+//		print(event.modifierFlags)
+//		print(event.specialKey)
+//		print(event.keyCode)
 //
 //		for character in characters {
 //			keyboardControlInputSource.handleKeyDown(forCharacter: character)
