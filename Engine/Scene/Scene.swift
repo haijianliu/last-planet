@@ -153,7 +153,7 @@ open class Scene: SKScene, SKSceneDelegate {
 	}
 	
 	override open func didFinishUpdate() {
-		sceneManager.gameInput.nativeControlInputSource.resetControlState()
+		Input.sharedInstance.resetInputState()
 	}
 	
 	// MARK: GameInputDelegate

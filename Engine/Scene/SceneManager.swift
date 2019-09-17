@@ -17,9 +17,6 @@ public final class SceneManager {
 	
 	// MARK: Properties
 	
-	/// The games input via connected control input sources. Used to provide control to scenes after presentation.
-	let gameInput: GameInput
-	
 	/// The view used to choreograph scene transitions.
 	let presentingView: SKView
 	
@@ -52,8 +49,6 @@ public final class SceneManager {
 	///   - url: `scene configuration plist`. This provides information about every scene in the game
 	public init(forUrl url: URL, presentingView: SKView) {
 		self.presentingView = presentingView
-		
-		self.gameInput = GameInput(nativeControlInputSource: KeyboardControlInputSource())
 		
 		/*
 		Load the game's `SceneConfiguration` plist. This provides information

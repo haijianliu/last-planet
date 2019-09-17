@@ -29,11 +29,7 @@ class PlayerComponent: GKComponent, Updatable {
 		
 		guard let component = entity?.component(ofType: TransformComponent.self) else { return }
 		
-		if Input.axis != nil {
-			component.scale.x = -component.scale.x
-		}
-		
-		if let _ = Input.keyDown(onKeycode: Keycode.j) {
+		if let _ = Input.keyDown(Keycode.j) {
 			component.scale.x = -component.scale.x
 		}
 	}

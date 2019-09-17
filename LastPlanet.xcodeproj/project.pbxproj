@@ -74,13 +74,7 @@
 		60B6E5832322C9C4007835A3 /* PlayerActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60B6E5812322C9C4007835A3 /* PlayerActions.sks */; };
 		60EE1396232D06A9002462EA /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE1395232D06A9002462EA /* Input.swift */; };
 		60EE1397232D06A9002462EA /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE1395232D06A9002462EA /* Input.swift */; };
-		60EE1399232D07AF002462EA /* ControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE1398232D07AF002462EA /* ControlInputSource.swift */; };
-		60EE139A232D07AF002462EA /* ControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE1398232D07AF002462EA /* ControlInputSource.swift */; };
-		60EE13A7232D1204002462EA /* KeyboardControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE13A5232D1204002462EA /* KeyboardControlInputSource.swift */; };
 		60EE13AA232D1225002462EA /* SceneKeyboardEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE13A8232D1225002462EA /* SceneKeyboardEventExtension.swift */; };
-		60EE13B2232D1393002462EA /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE13B1232D1393002462EA /* GameInput.swift */; };
-		60EE13B3232D1393002462EA /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE13B1232D1393002462EA /* GameInput.swift */; };
-		60EE13B7232D17E1002462EA /* KeyboardControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE13A5232D1204002462EA /* KeyboardControlInputSource.swift */; };
 		60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */; };
 		60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */; };
 		60FE6BAD2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */; };
@@ -174,10 +168,7 @@
 		60B6E57E2322C9A2007835A3 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
 		60B6E5812322C9C4007835A3 /* PlayerActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerActions.sks; sourceTree = "<group>"; };
 		60EE1395232D06A9002462EA /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
-		60EE1398232D07AF002462EA /* ControlInputSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputSource.swift; sourceTree = "<group>"; };
-		60EE13A5232D1204002462EA /* KeyboardControlInputSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardControlInputSource.swift; sourceTree = "<group>"; };
 		60EE13A8232D1225002462EA /* SceneKeyboardEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKeyboardEventExtension.swift; sourceTree = "<group>"; };
-		60EE13B1232D1393002462EA /* GameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInput.swift; sourceTree = "<group>"; };
 		60FE6BA82327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadingResourcesState.swift; sourceTree = "<group>"; };
 		60FE6BAA2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderDownloadFailedState.swift; sourceTree = "<group>"; };
 		60FE6BAC2327EDBC00A8DC56 /* SceneManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerDelegate.swift; sourceTree = "<group>"; };
@@ -337,9 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				60EE1395232D06A9002462EA /* Input.swift */,
-				60EE13B1232D1393002462EA /* GameInput.swift */,
-				60EE1398232D07AF002462EA /* ControlInputSource.swift */,
-				60EE13A5232D1204002462EA /* KeyboardControlInputSource.swift */,
 				6063F5E42331169B0019EC32 /* keycode.swift */,
 				60EE13A8232D1225002462EA /* SceneKeyboardEventExtension.swift */,
 			);
@@ -565,12 +553,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60EE13B7232D17E1002462EA /* KeyboardControlInputSource.swift in Sources */,
 				60A5D6C22326968F000DEB84 /* SceneOperation.swift in Sources */,
 				60944BA0232F5AA000A6CE48 /* Updatable.swift in Sources */,
 				60FE6BAD2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
-				60EE1399232D07AF002462EA /* ControlInputSource.swift in Sources */,
-				60EE13B2232D1393002462EA /* GameInput.swift in Sources */,
 				60FE6BA92327E70900A8DC56 /* SceneLoaderDownloadingResourcesState.swift in Sources */,
 				60FE6BAB2327E77A00A8DC56 /* SceneLoaderDownloadFailedState.swift in Sources */,
 				60169EAC23254AC500A430E8 /* Scene.swift in Sources */,
@@ -596,7 +581,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60A5D6C32326968F000DEB84 /* SceneOperation.swift in Sources */,
-				60EE13B3232D1393002462EA /* GameInput.swift in Sources */,
 				60169EAD23254AC500A430E8 /* Scene.swift in Sources */,
 				60FE6BAE2327EDBC00A8DC56 /* SceneManagerDelegate.swift in Sources */,
 				6026CA16232A8F970061D7BF /* AnimationComponent.swift in Sources */,
@@ -606,11 +590,9 @@
 				60EE13AA232D1225002462EA /* SceneKeyboardEventExtension.swift in Sources */,
 				60169EA7232529F100A430E8 /* SceneMetadata.swift in Sources */,
 				60A5D6C623269715000DEB84 /* LoadResourcesOperation.swift in Sources */,
-				60EE13A7232D1204002462EA /* KeyboardControlInputSource.swift in Sources */,
 				60169E8F2324F86600A430E8 /* SceneLoader.swift in Sources */,
 				60A5D6B72326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift in Sources */,
 				60A5D6C023269618000DEB84 /* LoadSceneOperation.swift in Sources */,
-				60EE139A232D07AF002462EA /* ControlInputSource.swift in Sources */,
 				605A8912231FF6B000F21E73 /* ComponentSystem.swift in Sources */,
 				60A5D6BA232692F2000DEB84 /* SceneLoaderPreparingResourcesState.swift in Sources */,
 				60944BA1232F5AA000A6CE48 /* Updatable.swift in Sources */,
