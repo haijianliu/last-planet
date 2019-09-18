@@ -13,19 +13,19 @@ public class Input {
 	
 	// MARK: Properties
 	
-	static public func keyDown(_ keycode: Keycode) -> Float? {
-		return Input.sharedInstance.keyDown[keycode.rawValue]
-	}
+	private var keyEvent = [Float?](repeating: nil, count: 256)
 	
-	var keyDown = [Float?](repeating: nil, count: 256)
+	static public func keyDown(_ keycode: Keycode) -> Float? {
+		return Input.sharedInstance.keyEvent[keycode.rawValue]
+	}
 	
 	// MARK: ControlInputSource
 	
-	func controlInputSource(didUpdateKey keycode: Int, for value: Float?) {
-		keyDown[keycode] = value
+	func keyDown(with event: NSEvent) {
+		keyEvent[Int(event.keyCode)] = 1.0
 	}
 	
-	func resetInputState() {
-		keyDown = [Float?](repeating: nil, count: 256)
+	func keyUp(with event: NSEvent) {
+		keyEvent[Int(event.keyCode)] = nil
 	}
 }

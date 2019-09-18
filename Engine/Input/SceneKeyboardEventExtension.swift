@@ -16,21 +16,22 @@ Extend `Scene` to forward events from the scene to a platform-specific control i
 On OS X, this is a `KeyboardControlInputSource`.
 */
 extension Scene {
-
+	
 	// MARK: NSResponder
 	
 	override open func mouseDown(with event: NSEvent) {
-
+		
 	}
 	
 	override open func mouseUp(with event: NSEvent) {
+		
 	}
 	
 	override open func keyDown(with event: NSEvent) {
-		Input.sharedInstance.controlInputSource(didUpdateKey: Int(event.keyCode), for: 1.0)
+		Input.sharedInstance.keyDown(with: event)
 	}
 	
 	override open func keyUp(with event: NSEvent) {
-	
+		Input.sharedInstance.keyUp(with: event)
 	}
 }
