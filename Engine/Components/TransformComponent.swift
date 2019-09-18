@@ -19,6 +19,10 @@ public class TransformComponent: GKComponent {
 		print(String(describing: type(of: self)) + " \(seconds)")
 		
 		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node else { return }
+		
+		if let spriteNode = node as? SKSpriteNode {
+			spriteNode.texture?.filteringMode = .nearest
+		}
 	
 		node.position = CGPoint(x: CGFloat(position.x), y: CGFloat(position.y))
 		node.zPosition = CGFloat(position.z)

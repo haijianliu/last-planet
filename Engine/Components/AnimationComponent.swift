@@ -81,8 +81,6 @@ public class AnimationComponent: GKComponent {
 		
 		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode else { fatalError("An AnimationComponent's entity must have an SKSpriteNode GKSKNodeComponent.") }
 		
-		node.texture?.filteringMode = .nearest
-		
 		// Check if we are already running this animation. There's no need to do anything if so.
 		if currentAnimation != nil && currentAnimation!.actionName == animationName { return }
 		

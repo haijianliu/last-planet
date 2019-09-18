@@ -72,7 +72,7 @@ class LoadSceneOperation: SceneOperation, ProgressReporting {
 		
 		
 		// Set the scale mode to scale to fit the window
-		scene.scaleMode = .aspectFill
+		scene.scaleMode = .resizeFill
 		
 		self.scene = scene
 		
