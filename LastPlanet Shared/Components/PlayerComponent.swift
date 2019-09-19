@@ -44,40 +44,36 @@ class PlayerComponent: GKComponent, Updatable {
 	var lastHurt: Float = 0
 	var lastFreeze: Float = 0
 	
+	var stateMachine: GKStateMachine?
+	
 	override func didAddToEntity() {
 		super.didAddToEntity()
 		
 		// Setup player entity with components.
 		entity?.addComponent(TransformComponent())
+		entity?.addComponent(AnimationComponent(ForActionKey: "PlayerTextureAnimation"))
 		
-		let animationComponent = AnimationComponent(ForActionKey: "PlayerTextureAnimation")
-		animationComponent.addAnimation(named: "PlayerIdle")
-		animationComponent.addAnimation(named: "PlayerRunShoot")
-		animationComponent.requestedAnimationName = "PlayerRunShoot"
-		entity?.addComponent(animationComponent)
+		// State machine
+		stateMachine = GKStateMachine(states: [PlayerIdleState(entity: entity),
+		                                       PlayerRunShootState(entity: entity)])
+		stateMachine?.enter(PlayerIdleState.self)
 	}
 	
 	override func update(deltaTime seconds: TimeInterval) {
 		super.update(deltaTime: seconds)
 		
-		guard let transform = entity?.component(ofType: TransformComponent.self) else { return }
-		guard let animation = entity?.component(ofType: AnimationComponent.self) else { return }
-		
-		move = false
+		stateMachine?.update(deltaTime: seconds)
 		
 		if let _ = Input.keyDown(Keycode.leftArrow) {
-			transform.position.x -= Float(speed * seconds * 200.0)
-			right = false
-			move = true
+			stateMachine?.enter(PlayerRunShootState.self)
+			return
 		}
+		
 		if let _ = Input.keyDown(Keycode.rightArrow) {
-			transform.position.x += Float(speed * seconds * 200.0)
-			right = true
-			move = true
+			stateMachine?.enter(PlayerRunShootState.self)
+			return
 		}
 		
-		animation.requestedAnimationName = move ? "PlayerRunShoot" : "PlayerIdle"
-		
-		transform.scale.x = right ? 1.0 : -1.0
+		stateMachine?.enter(PlayerIdleState.self)
 	}
 }
