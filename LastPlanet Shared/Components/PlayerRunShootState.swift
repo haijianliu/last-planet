@@ -27,7 +27,7 @@ class PlayerRunShootState: GKState {
 	
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 		switch stateClass {
-		case is PlayerIdleState.Type:
+		case is PlayerIdleState.Type, is PlayerJumpState.Type:
 			return true
 		default:
 			return false
@@ -38,14 +38,27 @@ class PlayerRunShootState: GKState {
 		guard let transform = entity?.component(ofType: TransformComponent.self) else { return }
 		guard let player = entity?.component(ofType: PlayerComponent.self) else { return }
 		
+		var action = false
+		
 		if let _ = Input.keyDown(Keycode.leftArrow) {
 			transform.position.x -= Float(player.speed * seconds * 200.0)
 			transform.scale.x = -1.0
+			action = true
 		}
 		
 		if let _ = Input.keyDown(Keycode.rightArrow) {
 			transform.position.x += Float(player.speed * seconds * 200.0)
 			transform.scale.x = 1.0
+			action = true
+		}
+		
+		if let _ = Input.keyDown(Keycode.space) {
+			stateMachine?.enter(PlayerJumpState.self)
+			action = true
+		}
+		
+		if !action {
+			stateMachine?.enter(PlayerIdleState.self)
 		}
 	}
 }

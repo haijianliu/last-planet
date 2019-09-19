@@ -55,7 +55,8 @@ class PlayerComponent: GKComponent, Updatable {
 		
 		// State machine
 		stateMachine = GKStateMachine(states: [PlayerIdleState(entity: entity),
-		                                       PlayerRunShootState(entity: entity)])
+		                                       PlayerRunShootState(entity: entity),
+		                                       PlayerJumpState(entity: entity)])
 		stateMachine?.enter(PlayerIdleState.self)
 	}
 	
@@ -63,17 +64,5 @@ class PlayerComponent: GKComponent, Updatable {
 		super.update(deltaTime: seconds)
 		
 		stateMachine?.update(deltaTime: seconds)
-		
-		if let _ = Input.keyDown(Keycode.leftArrow) {
-			stateMachine?.enter(PlayerRunShootState.self)
-			return
-		}
-		
-		if let _ = Input.keyDown(Keycode.rightArrow) {
-			stateMachine?.enter(PlayerRunShootState.self)
-			return
-		}
-		
-		stateMachine?.enter(PlayerIdleState.self)
 	}
 }

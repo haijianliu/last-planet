@@ -54,6 +54,8 @@
 		607C6B002333BD1200D1AA16 /* PlayerIdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C6AFE2333BD1200D1AA16 /* PlayerIdleState.swift */; };
 		607C6B052333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */; };
 		607C6B062333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */; };
+		607EE4232333CF37006285CA /* PlayerJumpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EE4222333CF37006285CA /* PlayerJumpState.swift */; };
+		607EE4242333CF37006285CA /* PlayerJumpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EE4222333CF37006285CA /* PlayerJumpState.swift */; };
 		60944BA0232F5AA000A6CE48 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60944B9F232F5AA000A6CE48 /* Updatable.swift */; };
 		60944BA1232F5AA000A6CE48 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60944B9F232F5AA000A6CE48 /* Updatable.swift */; };
 		60A5D6B62326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */; };
@@ -161,6 +163,7 @@
 		607166C0232943560023027A /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		607C6AFE2333BD1200D1AA16 /* PlayerIdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerIdleState.swift; sourceTree = "<group>"; };
 		607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRunShootState.swift; sourceTree = "<group>"; };
+		607EE4222333CF37006285CA /* PlayerJumpState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerJumpState.swift; sourceTree = "<group>"; };
 		60944B9F232F5AA000A6CE48 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		60982E502322B87E00730DA3 /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		60A5D6B52326919F000DEB84 /* SceneLoaderResourcesAvailableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderResourcesAvailableState.swift; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				6026CA0E232A87890061D7BF /* PlayerComponent.swift */,
 				607C6AFE2333BD1200D1AA16 /* PlayerIdleState.swift */,
 				607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */,
+				607EE4222333CF37006285CA /* PlayerJumpState.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -625,6 +629,7 @@
 			files = (
 				6042E5D7231D571C002A0E1F /* GameScene.swift in Sources */,
 				6042E5BD231D571C002A0E1F /* GameViewController.swift in Sources */,
+				607EE4232333CF37006285CA /* PlayerJumpState.swift in Sources */,
 				607C6AFF2333BD1200D1AA16 /* PlayerIdleState.swift in Sources */,
 				607166C1232943560023027A /* TestScene.swift in Sources */,
 				607C6B052333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */,
@@ -639,6 +644,7 @@
 			files = (
 				6042E5D8231D571C002A0E1F /* GameScene.swift in Sources */,
 				6042E5CE231D571C002A0E1F /* GameViewController.swift in Sources */,
+				607EE4242333CF37006285CA /* PlayerJumpState.swift in Sources */,
 				607C6B002333BD1200D1AA16 /* PlayerIdleState.swift in Sources */,
 				607166C2232943C30023027A /* TestScene.swift in Sources */,
 				607C6B062333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */,
