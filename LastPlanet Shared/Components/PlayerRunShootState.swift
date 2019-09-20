@@ -28,7 +28,8 @@ class PlayerRunShootState: GKState {
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 		switch stateClass {
 		case is PlayerIdleState.Type,
-				 is PlayerJumpState.Type:
+				 is PlayerJumpState.Type,
+				 is PlayerDuckState.Type:
 			return true
 		default:
 			return false
@@ -55,6 +56,11 @@ class PlayerRunShootState: GKState {
 		
 		if let _ = Input.keyDown(Keycode.space) {
 			stateMachine?.enter(PlayerJumpState.self)
+			action = true
+		}
+		
+		if let _ = Input.keyDown(Keycode.downArrow) {
+			stateMachine?.enter(PlayerDuckState.self)
 			action = true
 		}
 		

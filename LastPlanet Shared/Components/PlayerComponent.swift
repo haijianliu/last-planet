@@ -48,7 +48,8 @@ class PlayerComponent: GKComponent, Updatable {
 		stateMachine = GKStateMachine(states: [PlayerIdleState(entity: entity),
 																					 PlayerRunShootState(entity: entity),
 																					 PlayerJumpState(entity: entity),
-																					 PlayerShootState(entity: entity)])
+																					 PlayerShootState(entity: entity),
+																					 PlayerDuckState(entity: entity)])
 		stateMachine?.enter(PlayerIdleState.self)
 	}
 	

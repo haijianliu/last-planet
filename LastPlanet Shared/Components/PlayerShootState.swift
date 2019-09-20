@@ -29,7 +29,8 @@ class PlayerShootState: GKState {
 		switch stateClass {
 		case is PlayerRunShootState.Type,
 				 is PlayerJumpState.Type,
-				 is PlayerIdleState.Type:
+				 is PlayerIdleState.Type,
+				 is PlayerDuckState.Type:
 			return true
 		default:
 			return false
@@ -50,6 +51,10 @@ class PlayerShootState: GKState {
 		if let _ = Input.keyDown(Keycode.space) {
 			stateMachine?.enter(PlayerJumpState.self)
 			return
+		}
+		
+		if let _ = Input.keyDown(Keycode.downArrow) {
+			stateMachine?.enter(PlayerDuckState.self)
 		}
 		
 		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode else { return }
