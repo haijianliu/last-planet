@@ -41,13 +41,13 @@ class PlayerRunShootState: GKState {
 		var action = false
 		
 		if let _ = Input.keyDown(Keycode.leftArrow) {
-			transform.position.x -= Float(player.speed * seconds * 200.0)
+			transform.position.x -= Float(player.speed * seconds)
 			transform.scale.x = -1.0
 			action = true
 		}
 		
 		if let _ = Input.keyDown(Keycode.rightArrow) {
-			transform.position.x += Float(player.speed * seconds * 200.0)
+			transform.position.x += Float(player.speed * seconds)
 			transform.scale.x = 1.0
 			action = true
 		}

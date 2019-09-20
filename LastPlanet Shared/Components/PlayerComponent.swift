@@ -25,15 +25,6 @@ class PlayerComponent: GKComponent, Updatable {
 	var shootEnergy: Float = 20.0
 	var energyRegain: Float = 20.0
 	var bulletDamage: Float = 40.0
-	
-	// status
-	var move: Bool = false
-	var right: Bool = true
-	var air: Bool = false
-	var shoot: Bool = false
-	var duck: Bool = false
-	var hurt: Bool = false
-	var freeze: Bool = false
 
 	var verticalSpeed: Float = 0.0
 	var shootDuration: Float = 0.2

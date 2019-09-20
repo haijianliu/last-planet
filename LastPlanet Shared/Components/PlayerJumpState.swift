@@ -42,12 +42,12 @@ class PlayerJumpState: GKState {
 		guard let player = entity?.component(ofType: PlayerComponent.self) else { return }
 		
 		if let _ = Input.keyDown(Keycode.leftArrow) {
-			transform.position.x -= Float(player.speed * seconds * 200.0)
+			transform.position.x -= Float(player.speed * seconds)
 			transform.scale.x = -1.0
 		}
 		
 		if let _ = Input.keyDown(Keycode.rightArrow) {
-			transform.position.x += Float(player.speed * seconds * 200.0)
+			transform.position.x += Float(player.speed * seconds)
 			transform.scale.x = 1.0
 		}
 		
@@ -56,7 +56,7 @@ class PlayerJumpState: GKState {
 			player.verticalSpeed = -0.8 * player.jumpPower
 		}
 		
-		transform.position.y += player.verticalSpeed * Float(seconds) * 200.0
+		transform.position.y += player.verticalSpeed * Float(seconds)
 		
 		if transform.position.y < 0 {
 			transform.position.y = 0

@@ -133,7 +133,6 @@
 		60169E872324F79000A430E8 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		60169E8A2324F7DE00A430E8 /* SceneMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMetadata.swift; sourceTree = "<group>"; };
 		60169E8D2324F86600A430E8 /* SceneLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoader.swift; sourceTree = "<group>"; };
-		60169E902325042400A430E8 /* GameplayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayConfiguration.swift; sourceTree = "<group>"; };
 		60169E952325148300A430E8 /* SceneLoaderInitialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLoaderInitialState.swift; sourceTree = "<group>"; };
 		60169E98232519A000A430E8 /* SceneConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SceneConfiguration.plist; sourceTree = "<group>"; };
 		60169EAB23254AC500A430E8 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 			children = (
 				60183582231EB61000A34C27 /* Engine.h */,
 				60183583231EB61000A34C27 /* Info.plist */,
-				60169E902325042400A430E8 /* GameplayConfiguration.swift */,
 				60169E862324F76E00A430E8 /* Scene */,
 				60EE13A1232D11C5002462EA /* Input */,
 				605A8906231FF27900F21E73 /* Components */,

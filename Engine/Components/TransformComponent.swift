@@ -13,6 +13,8 @@ public class TransformComponent: GKComponent {
 	public var position = float3(repeating: 0)
 	public var scale = float2(repeating: 1)
 	
+	private let unitToPixel: Float = 200.0
+	
 	override public func update(deltaTime seconds: TimeInterval) {
 		super.update(deltaTime: seconds)
 		
@@ -24,7 +26,7 @@ public class TransformComponent: GKComponent {
 			spriteNode.texture?.filteringMode = .nearest
 		}
 	
-		node.position = CGPoint(x: CGFloat(position.x), y: CGFloat(position.y))
+		node.position = CGPoint(x: CGFloat(position.x * unitToPixel), y: CGFloat(position.y * unitToPixel))
 		node.zPosition = CGFloat(position.z)
 
 		node.xScale = CGFloat(scale.x)
