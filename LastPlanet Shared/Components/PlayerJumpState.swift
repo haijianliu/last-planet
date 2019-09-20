@@ -30,7 +30,7 @@ class PlayerJumpState: GKState {
 	
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 		switch stateClass {
-		case is PlayerIdleState.Type, is PlayerRunShootState.Type:
+		case is PlayerIdleState.Type:
 			return true
 		default:
 			return false

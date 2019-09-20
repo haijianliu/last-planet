@@ -104,7 +104,7 @@ public class AnimationComponent: GKComponent {
 //			node.position = CGPoint.zero
 			
 			// Add the new action to the node if an action exists.
-			node.run(SKAction.repeatForever(animation.action), withKey: actionKey)
+			node.run(animation.action, withKey: actionKey)
 			
 			print("Run animation: <\(Animation.self)> name: `\(animation.actionName)` action: \(animation.action)")
 		}

@@ -1,34 +1,35 @@
 //
-//  PlayerRunShootState.swift
+//  PlayerShootState.swift
 //  LastPlanet
 //
-//  Created by haijian on 2019/09/19.
+//  Created by haijian on 2019/09/20.
 //  Copyright © 2019 haijian. All rights reserved.
 //
 
 import GameplayKit
 import Engine
 
-class PlayerRunShootState: GKState {
+class PlayerShootState: GKState {
 	var entity: GKEntity?
 	
 	init(entity: GKEntity?) {
 		self.entity = entity
 		guard let animation = entity?.component(ofType: AnimationComponent.self) else { return }
-		animation.addAnimation(named: "PlayerRunShoot")
+		animation.addAnimation(named: "PlayerShoot")
 	}
 	
 	override func didEnter(from previousState: GKState?) {
 		print("Enter \(String(describing: self.self))")
 		
 		guard let animation = entity?.component(ofType: AnimationComponent.self) else { return }
-		animation.requestedAnimationName = "PlayerRunShoot"
+		animation.requestedAnimationName = "PlayerShoot"
 	}
 	
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 		switch stateClass {
-		case is PlayerIdleState.Type,
-				 is PlayerJumpState.Type:
+		case is PlayerRunShootState.Type,
+				 is PlayerJumpState.Type,
+				 is PlayerIdleState.Type:
 			return true
 		default:
 			return false
@@ -36,30 +37,26 @@ class PlayerRunShootState: GKState {
 	}
 	
 	override func update(deltaTime seconds: TimeInterval) {
-		guard let transform = entity?.component(ofType: TransformComponent.self) else { return }
-		guard let player = entity?.component(ofType: PlayerComponent.self) else { return }
-		
-		var action = false
-		
 		if let _ = Input.keyDown(Keycode.leftArrow) {
-			transform.position.x -= Float(player.speed * seconds)
-			transform.scale.x = -1.0
-			action = true
+			stateMachine?.enter(PlayerRunShootState.self)
+			return
 		}
 		
 		if let _ = Input.keyDown(Keycode.rightArrow) {
-			transform.position.x += Float(player.speed * seconds)
-			transform.scale.x = 1.0
-			action = true
+			stateMachine?.enter(PlayerRunShootState.self)
+			return
 		}
 		
 		if let _ = Input.keyDown(Keycode.space) {
 			stateMachine?.enter(PlayerJumpState.self)
-			action = true
+			return
 		}
 		
-		if !action {
+		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode else { return }
+		
+		if node.action(forKey: "PlayerTextureAnimation") == nil {
 			stateMachine?.enter(PlayerIdleState.self)
 		}
 	}
 }
+

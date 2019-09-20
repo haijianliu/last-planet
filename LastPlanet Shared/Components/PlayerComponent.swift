@@ -25,7 +25,7 @@ class PlayerComponent: GKComponent, Updatable {
 	var shootEnergy: Float = 20.0
 	var energyRegain: Float = 20.0
 	var bulletDamage: Float = 40.0
-
+	
 	var verticalSpeed: Float = 0.0
 	var shootDuration: Float = 0.2
 	var deathDelay: Float = 1.0
@@ -46,8 +46,9 @@ class PlayerComponent: GKComponent, Updatable {
 		
 		// State machine
 		stateMachine = GKStateMachine(states: [PlayerIdleState(entity: entity),
-		                                       PlayerRunShootState(entity: entity),
-		                                       PlayerJumpState(entity: entity)])
+																					 PlayerRunShootState(entity: entity),
+																					 PlayerJumpState(entity: entity),
+																					 PlayerShootState(entity: entity)])
 		stateMachine?.enter(PlayerIdleState.self)
 	}
 	
@@ -57,3 +58,4 @@ class PlayerComponent: GKComponent, Updatable {
 		stateMachine?.update(deltaTime: seconds)
 	}
 }
+
