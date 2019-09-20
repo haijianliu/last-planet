@@ -47,6 +47,8 @@
 		6048D9F1233511C700D53D1B /* PlayerShootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048D9EF233511C700D53D1B /* PlayerShootState.swift */; };
 		6048D9F3233518F200D53D1B /* PlayerDuckState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048D9F2233518F200D53D1B /* PlayerDuckState.swift */; };
 		6048D9F4233518F200D53D1B /* PlayerDuckState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048D9F2233518F200D53D1B /* PlayerDuckState.swift */; };
+		6048D9F82335210500D53D1B /* PlayerDuckShootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048D9F72335210500D53D1B /* PlayerDuckShootState.swift */; };
+		6048D9F92335210500D53D1B /* PlayerDuckShootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048D9F72335210500D53D1B /* PlayerDuckShootState.swift */; };
 		605A8902231FEF6100F21E73 /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8900231FEF5C00F21E73 /* TransformComponent.swift */; };
 		605A8903231FEF6100F21E73 /* TransformComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8900231FEF5C00F21E73 /* TransformComponent.swift */; };
 		605A8911231FF6B000F21E73 /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605A8910231FF6B000F21E73 /* ComponentSystem.swift */; };
@@ -162,6 +164,7 @@
 		6042E5E4231D5853002A0E1F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6048D9EF233511C700D53D1B /* PlayerShootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerShootState.swift; sourceTree = "<group>"; };
 		6048D9F2233518F200D53D1B /* PlayerDuckState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDuckState.swift; sourceTree = "<group>"; };
+		6048D9F72335210500D53D1B /* PlayerDuckShootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDuckShootState.swift; sourceTree = "<group>"; };
 		605A8900231FEF5C00F21E73 /* TransformComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformComponent.swift; sourceTree = "<group>"; };
 		605A8910231FF6B000F21E73 /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		6063F5E42331169B0019EC32 /* keycode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keycode.swift; sourceTree = "<group>"; };
@@ -305,6 +308,20 @@
 			path = "LastPlanet macOS";
 			sourceTree = "<group>";
 		};
+		6048D9F623351D7E00D53D1B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				6026CA0E232A87890061D7BF /* PlayerComponent.swift */,
+				607C6AFE2333BD1200D1AA16 /* PlayerIdleState.swift */,
+				607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */,
+				607EE4222333CF37006285CA /* PlayerJumpState.swift */,
+				6048D9EF233511C700D53D1B /* PlayerShootState.swift */,
+				6048D9F2233518F200D53D1B /* PlayerDuckState.swift */,
+				6048D9F72335210500D53D1B /* PlayerDuckShootState.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		605A8906231FF27900F21E73 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,12 +343,7 @@
 		60982E4F2322B84200730DA3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6026CA0E232A87890061D7BF /* PlayerComponent.swift */,
-				607C6AFE2333BD1200D1AA16 /* PlayerIdleState.swift */,
-				607C6B042333BFB900D1AA16 /* PlayerRunShootState.swift */,
-				607EE4222333CF37006285CA /* PlayerJumpState.swift */,
-				6048D9EF233511C700D53D1B /* PlayerShootState.swift */,
-				6048D9F2233518F200D53D1B /* PlayerDuckState.swift */,
+				6048D9F623351D7E00D53D1B /* Player */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 				607166C1232943560023027A /* TestScene.swift in Sources */,
 				6048D9F3233518F200D53D1B /* PlayerDuckState.swift in Sources */,
 				607C6B052333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */,
+				6048D9F82335210500D53D1B /* PlayerDuckShootState.swift in Sources */,
 				6048D9F0233511C700D53D1B /* PlayerShootState.swift in Sources */,
 				6026CA0F232A87890061D7BF /* PlayerComponent.swift in Sources */,
 				6042E5BB231D571C002A0E1F /* AppDelegate.swift in Sources */,
@@ -657,6 +670,7 @@
 				607166C2232943C30023027A /* TestScene.swift in Sources */,
 				6048D9F4233518F200D53D1B /* PlayerDuckState.swift in Sources */,
 				607C6B062333BFB900D1AA16 /* PlayerRunShootState.swift in Sources */,
+				6048D9F92335210500D53D1B /* PlayerDuckShootState.swift in Sources */,
 				6048D9F1233511C700D53D1B /* PlayerShootState.swift in Sources */,
 				6026CA10232A878A0061D7BF /* PlayerComponent.swift in Sources */,
 				6042E5CC231D571C002A0E1F /* AppDelegate.swift in Sources */,

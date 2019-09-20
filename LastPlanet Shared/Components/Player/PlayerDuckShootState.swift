@@ -1,35 +1,36 @@
 //
-//  PlayerDuckState.swift
+//  PlayerDuckShootState.swift
 //  LastPlanet
 //
-//  Created by haijian on 2019/09/20.
+//  Created by haijian on 2019/09/21.
 //  Copyright © 2019 haijian. All rights reserved.
 //
 
 import GameplayKit
 import Engine
 
-class PlayerDuckState: GKState {
+class PlayerDuckShootState: GKState {
 	var entity: GKEntity?
 	
 	init(entity: GKEntity?) {
 		self.entity = entity
 		guard let animation = entity?.component(ofType: AnimationComponent.self) else { return }
-		animation.addAnimation(named: "PlayerDuck")
+		animation.addAnimation(named: "PlayerDuckShoot")
 	}
 	
 	override func didEnter(from previousState: GKState?) {
 		print("Enter \(String(describing: self.self))")
 		
 		guard let animation = entity?.component(ofType: AnimationComponent.self) else { return }
-		animation.requestedAnimationName = "PlayerDuck"
+		animation.requestedAnimationName = "PlayerDuckShoot"
 	}
 	
 	override func isValidNextState(_ stateClass: AnyClass) -> Bool {
 		switch stateClass {
 		case is PlayerRunShootState.Type,
 				 is PlayerJumpState.Type,
-				 is PlayerIdleState.Type:
+				 is PlayerIdleState.Type,
+				 is PlayerDuckState.Type:
 			return true
 		default:
 			return false
@@ -52,8 +53,9 @@ class PlayerDuckState: GKState {
 			return
 		}
 		
-		if Input.keyDown(Keycode.downArrow) == nil {
-			stateMachine?.enter(PlayerIdleState.self)
+		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode else { return }
+		if node.action(forKey: "PlayerTextureAnimation") == nil {
+			stateMachine?.enter(PlayerDuckState.self)
 		}
 	}
 }

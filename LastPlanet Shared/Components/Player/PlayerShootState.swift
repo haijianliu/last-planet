@@ -58,7 +58,6 @@ class PlayerShootState: GKState {
 		}
 		
 		guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node as? SKSpriteNode else { return }
-		
 		if node.action(forKey: "PlayerTextureAnimation") == nil {
 			stateMachine?.enter(PlayerIdleState.self)
 		}
